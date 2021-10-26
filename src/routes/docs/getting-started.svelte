@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Introduction</title>
+	<title>Getting started</title>
 </svelte:head>
 
-Introduction
+<h1 class="text-4xl font-semibold">Getting started</h1>

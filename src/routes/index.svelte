@@ -22,7 +22,7 @@
 		The i18n library for Svelte that analyzes and compiles your translations at build time
 	</p>
 	<div class="flex justify-center">
-		<a href="/introduction" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">Introduction</a>
-		<a href="/getting-started" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">Getting started</a>
+		<a href="/docs/introduction" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">Introduction</a>
+		<a href="/docs/getting-started" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">Getting started</a>
 	</div>
 </div>
