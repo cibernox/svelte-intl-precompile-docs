@@ -12,8 +12,12 @@ const config = {
       'secondary': '#676778',
       'dark': '#34343d',
       'light': '#c0c0d8',
-      'code': '#f6fafd'
-    }    
+      'white': '#fff',
+    },
+    backgroundColor: (theme) => ({
+      ...theme('colors'),
+      'code': '#f6fafd',
+    }),
   },
 
   plugins: [],
