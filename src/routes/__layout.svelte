@@ -2,7 +2,7 @@
   import "../app.css";
 </script>
 
-<header class="fixed flex shadow-lg w-screen h-12">
+<header class="fixed flex bg-white shadow-lg w-screen h-12">
   <div class="flex flex-1 justify-start items-center">
     <h1>Svelte Intl Precompile</h1>
   </div>

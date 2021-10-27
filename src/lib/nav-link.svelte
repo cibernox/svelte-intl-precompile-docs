@@ -4,6 +4,7 @@
   $: isActive = $page.path === href
 </script>
 
-<li class="p-0 mb-2 uppercase" class:underline={isActive}>
-	<a href={href}><slot/></a>
+<li class="p-0 mb-2">
+	<a href={href} class="uppercase font-bold" class:underline={isActive}><slot/></a>
+  <slot name="submenu"/>
 </li>
