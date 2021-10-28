@@ -78,7 +78,7 @@ addMessages('es', es);
 
 
 <Codeblock lang="js">{`
-import { init, register } from 'svelte-intl-precompile';
+import { init, register, waitLocale } from 'svelte-intl-precompile';
 register('en', () => import('$locales/en.js'));
 register('es', () => import('$locales/es.js'));
 init({ initialLocale: en });
