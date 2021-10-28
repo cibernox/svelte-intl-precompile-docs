@@ -27,6 +27,7 @@
         <li><a href="/docs/usage#other-stores">Other stores</a></li>
       </ul>
     </NavLink>
+    <NavLink href="/docs/playground">{$t('playground.title')}</NavLink>
   </ul>
 </nav>
 <div class="ml-72">

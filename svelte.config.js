@@ -19,7 +19,10 @@ const config = {
 		vite: {
 			plugins: [
 				precompileIntl('locales') // if your translations are defined in /locales/[lang].json
-			]
+			],
+      ssr: {
+        external: ['@babel/core', 'babel-plugin-precompile-intl']
+      }
 		}
   },
 };

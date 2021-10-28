@@ -3,5 +3,4 @@
  * inside `global.d.ts` and removing `export` keyword
  */
 export interface Locals {
-	userid: string;
 }
