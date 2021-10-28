@@ -2,16 +2,17 @@
 	export const prerender = true;
 </script>
 <script>
+	import { t } from 'svelte-intl-precompile';
 	import CodeInline from '$lib/code-inline.svelte';
 	import Codeblock from '$lib/codeblock.svelte';
 	import DefinitionEntry from '$lib/definition-entry.svelte';
 </script>
 
 <svelte:head>
-	<title>Introduction</title>
+	<title>{$t('usage.title')}</title>
 </svelte:head>
 
-<h1 class="text-4xl font-semibold">Usage</h1>
+<h1 class="text-4xl font-semibold">{$t('usage.title')}</h1>
 
 <p>
 	The runtime API of this library is mostly taken from the great <a href="https://github.com/kaisermann/svelte-i18n">svelte-intl</a>, to the point

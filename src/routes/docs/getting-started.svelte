@@ -3,15 +3,17 @@
 </script>
 
 <script lang="ts">
+	import { t } from 'svelte-intl-precompile';
 	import Codeblock from '$lib/codeblock.svelte';
 	import CodeInline from '$lib/code-inline.svelte';
 </script>
 
 <svelte:head>
-	<title>Getting started</title>
+	<title>{$t('getting-started.title')}</title>
 </svelte:head>
 
-<h1 class="text-4xl font-semibold">Getting started</h1>
+<h1 class="text-4xl font-semibold">{$t('getting-started.title')}</h1>
+
 <h2 class="text-2xl font-semibold">Instalation</h2>
 <p>
 	Install svelte-intl-precompile as a runtime dependency of your sveltkit app.

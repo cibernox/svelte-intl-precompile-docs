@@ -2,21 +2,22 @@
 	export const prerender = true;
 </script>
 <script lang="ts">
+	import { t } from 'svelte-intl-precompile';
 	import CodeInline from '$lib/code-inline.svelte';
 	import Codeblock from '$lib/codeblock.svelte';
 	import DefinitionEntry from '$lib/definition-entry.svelte';
 </script>
 
 <svelte:head>
-	<title>Introduction</title>
+	<title>{$t('configuration.title')}</title>
 </svelte:head>
 
-<h1 class="text-4xl font-semibold">Usage</h1>
+<h1 class="text-4xl font-semibold">{$t('configuration.title')}</h1>
 
 <h2 class="text-2xl font-semibold" id="sample-config">Configuration example</h2>
 
 <p>
-	This is the minimal working example of the library's initialization. Put this in your <CodeInline>__layout.svelte</CodeInline> file.
+	This is the minimal working example of the library's initialization. Put this in your <CodeInline>src/__layout.svelte</CodeInline> file.
 </p>
 
 <Codeblock lang="html">

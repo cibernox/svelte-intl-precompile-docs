@@ -1,4 +1,5 @@
 <script>
+  import { t } from 'svelte-intl-precompile';
   import NavLink from '$lib/nav-link.svelte';
   // import { page } from "$app/stores";
   // import { onMount, afterUpdate } from 'svelte';
@@ -19,10 +20,10 @@
 
 <nav class="fixed w-72 h-screen shadow-xl bg-gray-500">
   <ul class="pt-4 pl-8 pr-8 text-white">
-    <NavLink href="/docs/introduction">Introduction</NavLink>
-    <NavLink href="/docs/getting-started">Getting started</NavLink>
+    <NavLink href="/docs/introduction">{$t('introduction.title')}</NavLink>
+    <NavLink href="/docs/getting-started">{$t('getting-started.title')}</NavLink>
     <NavLink href="/docs/configuration">
-      Configuration
+      {$t('configuration.title')}
       <ul slot="submenu" class="pb-2 pl-4">
         <li><a href="/docs/configuration#sample-config">Example</a></li>
         <li><a href="/docs/configuration#static-locales">Load locales statically</a></li>
@@ -33,7 +34,7 @@
       </ul>
     </NavLink>
     <NavLink href="/docs/usage">
-      Usage
+      {$t('usage.title')}
       <ul slot="submenu" class="pb-2 pl-4">
         <li><a href="/docs/usage#basic-translation">Basic translation</a></li>
         <li><a href="/docs/usage#passing-arguments">Passing arguments</a></li>

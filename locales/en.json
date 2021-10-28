@@ -2,5 +2,7 @@
   "main.title": "Svelte Intl Precompile",
   "main.subtitle": "The i18n library for Svelte that analyzes and compiles your translations at build time",
   "introduction.title": "Introduction",
-  "getting-started.title": "Getting started"
+  "getting-started.title": "Getting started",
+  "configuration.title": "Configuration",
+  "usage.title": "Usage"
 }
