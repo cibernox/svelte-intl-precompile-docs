@@ -16,7 +16,7 @@
 
 <header class="fixed flex bg-white shadow-lg w-screen h-14 px-8">
   <div class="flex flex-1 justify-start items-center">
-    <h1><a href="/">{$t('main.hero-title')}</a></h1>
+    <h1><a href="/">{$t('main.title')}</a></h1>
   </div>
   <div class="flex flex-1 justify-end items-center">
     {#each $locales as loc}
