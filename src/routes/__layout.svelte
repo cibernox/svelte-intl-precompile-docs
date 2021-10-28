@@ -2,7 +2,7 @@
   import "../app.css";
 </script>
 
-<header class="fixed flex bg-white shadow-lg w-screen h-12">
+<header class="fixed flex bg-white shadow-lg w-screen h-14 px-8">
   <div class="flex flex-1 justify-start items-center">
     <h1>Svelte Intl Precompile</h1>
   </div>
@@ -13,6 +13,6 @@
     </a>
   </div>
 </header>
-<main class="pt-12 font-body leading-relaxed font-light">
+<main class="pt-14 font-body leading-relaxed font-light">
   <slot />
 </main>

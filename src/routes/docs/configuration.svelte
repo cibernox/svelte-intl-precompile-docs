@@ -150,3 +150,54 @@ export async function preload() {
     </dd>
   </div>
 </dl>
+
+<h2 class="text-xl font-semibold" id="custom-formats">Custom formats</h2>
+
+<p>
+  This library can format numbers, dates and times. It does it without adding significant weight to your app
+  by leverating the Intl API already present in all modern browsers and in Node.js.<br/>
+  By default you app can these formats, but you can add your own.
+</p>
+<p></p>
+
+<Codeblock lang="js">{`{
+  number: {
+    currency: { style: 'currency' }
+    percent: { style: 'percent' }
+    scientific: { notation: 'scientific' }
+    engineering: { notation: 'engineering' }
+    compactLong: { notation: 'compact', compactDisplay: 'long' }
+    compactShort: { notation: 'compact', compactDisplay: 'short' }    
+  },
+  date: {
+    short: { month: 'numeric', day: 'numeric', year: '2-digit' }
+    medium: { month: 'short', day: 'numeric', year: 'numeric' }
+    long: { month: 'long', day: 'numeric', year: 'numeric' }
+    full: { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }
+  },
+  time: {
+    short: { hour: 'numeric', minute: 'numeric' }
+    medium: { hour: 'numeric', minute: 'numeric', second: 'numeric' }
+    long: { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' }
+    full: { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' }
+  }
+}`}</Codeblock>
+
+<p>
+  If you want to define your own formats pass them on initialization using the <CodeInline>formats</CodeInline> option, which will be deep 
+  merged with the default formats listed above. The formats must be valid options to forward to 
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat" class="text-primary underline">Intl.DateTimeFormat</a>.
+</p>
+
+<Codeblock lang="js">{`init({
+  fallbackLocale: 'en',
+  initialLocale: 'en',
+  formats: {
+    date: {
+      abbreviated: { weekday: 'long', month: 'short', day: 'numeric' }
+    },
+    time: {
+      'just-hour': { hour: 'numeric' }
+    }
+  }
+});`}</Codeblock>

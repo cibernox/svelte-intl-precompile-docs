@@ -20,7 +20,7 @@
 	To accomplish that, it takes a different approach to most	internationalization libraries.
 	Much like Svelte.js analyzes and understands your code and at build time compiles it 
 	to minimal and efficient javascript, this library inspects your translations defined
-	in the <a href="https://lokalise.com/blog/complete-guide-to-icu-message-format/">ICU message syntax</a> and compiles them to small and efficient inline functions.
+	in the <a href="https://lokalise.com/blog/complete-guide-to-icu-message-format" class="text-primary underline">ICU message syntax</a> and compiles them to small and efficient inline functions.
 </p>
 
 <h2 class="text-2xl font-semibold">Features</h2>

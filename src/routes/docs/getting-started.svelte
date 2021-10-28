@@ -47,6 +47,18 @@
 }`}
 </Codeblock>
 
+<p>I prefer shallow dictionaries like the one above, but you can also define translations using nested dictionaries.</p>
+
+<Codeblock lang="js">{`{
+	"placeholders": {
+		"fullname": "John Smith",
+		"street-name": "13 Elm Street",
+		"subject": "Re: Hello"
+	},
+	"welcome-hero": "Welcome to Goliath Bank!",
+}`}
+	</Codeblock>
+
 <h2 class="text-2xl font-semibold">Hook the compiler into SvelteKit</h2>
 
 <p>

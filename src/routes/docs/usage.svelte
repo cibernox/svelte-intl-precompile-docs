@@ -25,7 +25,8 @@
 
 <Codeblock lang="js">{`{
 	"page.title": "Svelte Intl Precompile Docs",
-	"login-success-msg": "Welcome back, {name}"
+	"login-success-msg": "Welcome back, {name}",
+	"transfer-received": "You received {amount, number, currency} at {wireDate, time, short} on {wireDate, date, long}"
 }
 `}</Codeblock>
 
@@ -33,7 +34,7 @@
 
 <p>This store is the one you will use the most. Just import it and use it as a function, passing in the translation key.</p>
 
-<Codeblock lang="html">{`<script>
+<Codeblock lang="jsx">{`<script>
 	import { t } from 'svelte-intl-precompile'
 </script>
 <h1>{$t('page.title')}</h1>
@@ -46,4 +47,32 @@
 	in the <CodeInline>values</CodeInline> key.
 </p>
 
-<Codeblock lang="html">{`<h1>{$t('login-success-msg', { values: { name: user.name } })}</h1>`}</Codeblock>
+<Codeblock lang="jsx">{`<h1>{$t('login-success-msg', { values: { name: user.name } })}</h1>`}</Codeblock>
+
+<p>
+	There is no difference if the given parameters are just interpolated, used for in plural/select or are number, dates or times to be formatted.
+	All aguments are passed the same way.
+</p>
+
+<Codeblock lang="jsx">{`<h1>{$t('transfer-received', { values: { amount: 123.45 , wireDate: transfer.date } })}</h1>`}</Codeblock>
+
+<h2 class="text-xl font-semibold" id="formatting">Formatting dates, times and numbers</h2>
+
+<p>
+	While you can pass number, dates and times to your translations that will be formatted following your preferences, this library also has
+	stores to conveniently format them directly from your javascript code.
+</p>
+
+
+<Codeblock lang="html">{`<script>
+	import { date, number, time } from 'svelte-intl-precompile';
+	// ...
+	$: {
+		jqueryPlugin.magic({
+			dateString: $date(d, { format: 'short' }),
+			timeString: $time(t, { format: 'full' }),
+			priceString: $number(n, { format: 'currency' })
+		})
+	}
+</script>
+`}</Codeblock>

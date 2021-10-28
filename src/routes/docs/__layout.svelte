@@ -1,18 +1,20 @@
 <script>
   import NavLink from '$lib/nav-link.svelte';
-  import { page } from "$app/stores";
-  import { onMount, afterUpdate } from 'svelte';
-  $: {
-    $page.path;
-    let callback = () => {
-      if (window.location.hash) {
-        let header = document.querySelector(window.location.hash);
-        header && header.scrollIntoView();
-      }
-    };
-    onMount(callback);
-    afterUpdate(callback);
-  }
+  // import { page } from "$app/stores";
+  // import { onMount, afterUpdate } from 'svelte';
+  // $: {
+  //   $page.path;
+  //   let callback = () => {
+  //     if (window.location.hash) {
+  //       let header = document.querySelector(window.location.hash);
+  //       setTimeout(() => {
+  //         header && header.scrollIntoView();
+  //       }, 50);
+  //     }
+  //   };
+  //   onMount(callback);
+  //   afterUpdate(callback);
+  // }
 </script>
 
 <nav class="fixed w-72 h-screen shadow-xl bg-gray-500">
@@ -27,6 +29,7 @@
         <li><a href="/docs/configuration#dynamic-locales">Load locales dynamically</a></li>
         <li><a href="/docs/configuration#init">Default & Fallback locales</a></li>
         <li><a href="/docs/configuration#find-best-locale">Find the best locale</a></li>
+        <li><a href="/docs/configuration#custom-formats">Custom formats</a></li>
       </ul>
     </NavLink>
     <NavLink href="/docs/usage">
@@ -34,13 +37,13 @@
       <ul slot="submenu" class="pb-2 pl-4">
         <li><a href="/docs/usage#basic-translation">Basic translation</a></li>
         <li><a href="/docs/usage#passing-arguments">Passing arguments</a></li>
-        <!-- <li><a href="/docs/usage#passing-arguments">Formatting date/time</a></li> -->
+        <li><a href="/docs/usage#formatting">Format date, time & number</a></li>
       </ul>
     </NavLink>
   </ul>
 </nav>
 <div class="ml-72">
-  <article class="px-14 pt-8 space-y-10">
+  <article class="px-14 py-8 space-y-10">
     <slot/>
   </article>
 </div>
