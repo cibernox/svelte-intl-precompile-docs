@@ -6,6 +6,8 @@
 	import { t } from 'svelte-intl-precompile';
 	import Codeblock from '$lib/codeblock.svelte';
 	import CodeInline from '$lib/code-inline.svelte';
+	import scrollToHash from '$lib/scroll-to-hash';;
+	scrollToHash();
 </script>
 
 <svelte:head>

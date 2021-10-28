@@ -1,21 +1,6 @@
 <script>
   import { t } from 'svelte-intl-precompile';
   import NavLink from '$lib/nav-link.svelte';
-  // import { page } from "$app/stores";
-  // import { onMount, afterUpdate } from 'svelte';
-  // $: {
-  //   $page.path;
-  //   let callback = () => {
-  //     if (window.location.hash) {
-  //       let header = document.querySelector(window.location.hash);
-  //       setTimeout(() => {
-  //         header && header.scrollIntoView();
-  //       }, 50);
-  //     }
-  //   };
-  //   onMount(callback);
-  //   afterUpdate(callback);
-  // }
 </script>
 
 <nav class="fixed w-72 h-screen shadow-xl bg-gray-500">
