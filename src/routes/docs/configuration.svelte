@@ -20,8 +20,7 @@
 </p>
 
 <Codeblock lang="html">
-{`
-<script context="module">
+{`<script context="module">
 	import { addMessages, init } from 'svelte-intl-precompile';
 	import en from '$locales/en.js';
 	import es from '$locales/es.js';
@@ -32,8 +31,7 @@
 		fallbackLocale: 'en'
 	});	
 </script>
-<slot/>
-`}
+<slot/>`}
 </Codeblock>
 
 <p>This will get you going but lets dive deeper on it more.</p>
