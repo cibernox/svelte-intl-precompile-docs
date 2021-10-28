@@ -4,6 +4,7 @@
 <script lang="ts">
 	import CodeInline from '$lib/code-inline.svelte';
 	import Codeblock from '$lib/codeblock.svelte';
+	import DefinitionEntry from '$lib/definition-entry.svelte';
 </script>
 
 <svelte:head>
@@ -115,40 +116,38 @@ export async function preload() {
 </p>
 
 <dl>
-  <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-    <dt class="text-sm font-medium text-gray-500"><pre>getLocaleFromNavigator()</pre></dt>
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-      Extracts the locale from browser, which in turn is the operative systems' locale.
-    </dd>
-  </div>
-  <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-    <dt class="text-sm font-medium text-gray-500"><pre>getLocaleFromQueryString(key)</pre></dt>
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+  <DefinitionEntry background="gray">
+    <svelte:fragment slot="dt"><pre>getLocaleFromNavigator()</svelte:fragment>
+    <svelte:fragment slot="dd">Extracts the locale from browser, which in turn is the operative systems' locale.</svelte:fragment>
+  </DefinitionEntry>
+  <DefinitionEntry background="white">
+    <svelte:fragment slot="dt"><pre>getLocaleFromQueryString(key)</svelte:fragment>
+    <svelte:fragment slot="dd">
       Extracts the locale on the given key of the query string of the URL.<br>
-      E.g <pre class="inline">getLocaleFromQueryString('lang')</pre> for <pre class="inline">/users?sort=name&dir=asc&lang=es</pre>
-    </dd>
-  </div>
-  <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-    <dt class="text-sm font-medium text-gray-500"><pre>getLocaleFromHash(key)</pre></dt>
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+      E.g <pre class="inline">getLocaleFromQueryString('lang')</pre> for <pre class="inline">/users?sort=name&amp;dir=asc&amp;lang=es</pre>      
+    </svelte:fragment>
+  </DefinitionEntry>
+  <DefinitionEntry background="gray">
+    <svelte:fragment slot="dt"><pre>getLocaleFromHash(key)</svelte:fragment>
+    <svelte:fragment slot="dd">
       Like <pre class="inline">getLocaleFromQueryString</pre> but for the URL hash.<br>
-      E.g <pre class="inline">getLocaleFromHash('lang')</pre> for <pre class="inline">/users#sort=name&dir=asc&lang=es</pre>
-    </dd>
-  </div>
-  <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-    <dt class="text-sm font-medium text-gray-500"><pre>getLocaleFromPathname()</pre></dt>
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+      E.g <pre class="inline">getLocaleFromHash('lang')</pre> for <pre class="inline">/users#sort=name&amp;dir=asc&amp;lang=es</pre>
+    </svelte:fragment>
+  </DefinitionEntry>  
+  <DefinitionEntry background="white">
+    <svelte:fragment slot="dt"><pre>getLocaleFromPathname()</svelte:fragment>
+    <svelte:fragment slot="dd">
       Extracts the locale from the path of the URL.<br>
       E.g <pre class="inline">getLocaleFromPathname()</pre> for <pre class="inline">myapp.com/en-US/users</pre>      
-    </dd>
-  </div>
-  <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-    <dt class="text-sm font-medium text-gray-500"><pre>getLocaleFromHostname()</pre></dt>
-    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+    </svelte:fragment>
+  </DefinitionEntry>
+  <DefinitionEntry background="gray">
+    <svelte:fragment slot="dt"><pre>getLocaleFromHostname()</svelte:fragment>
+    <svelte:fragment slot="dd">
       Extracts the locale from host.<br>
       E.g <pre class="inline">getLocaleFromHostname()</pre> for <pre class="inline">https://pt.myapp.com</pre>      
-    </dd>
-  </div>
+    </svelte:fragment>
+  </DefinitionEntry>
 </dl>
 
 <h2 class="text-xl font-semibold" id="custom-formats">Custom formats</h2>

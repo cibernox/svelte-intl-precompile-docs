@@ -38,6 +38,7 @@
         <li><a href="/docs/usage#basic-translation">Basic translation</a></li>
         <li><a href="/docs/usage#passing-arguments">Passing arguments</a></li>
         <li><a href="/docs/usage#formatting">Format date, time & number</a></li>
+        <li><a href="/docs/usage#other-stores">Other stores</a></li>
       </ul>
     </NavLink>
   </ul>

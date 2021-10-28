@@ -4,6 +4,7 @@
 <script>
 	import CodeInline from '$lib/code-inline.svelte';
 	import Codeblock from '$lib/codeblock.svelte';
+	import DefinitionEntry from '$lib/definition-entry.svelte';
 </script>
 
 <svelte:head>
@@ -59,6 +60,7 @@
 <h2 class="text-xl font-semibold" id="formatting">Formatting dates, times and numbers</h2>
 
 <p>
+<p>
 	While you can pass number, dates and times to your translations that will be formatted following your preferences, this library also has
 	stores to conveniently format them directly from your javascript code.
 </p>
@@ -76,3 +78,47 @@
 	}
 </script>
 `}</Codeblock>
+
+<h2 class="text-xl font-semibold" id="other-stores">Other stores</h2>
+
+<p>
+	There are three more stores worth mentioning:
+</p>
+
+<dl>
+	<DefinitionEntry background="gray">
+		<svelte:fragment slot="dt"><pre>$locale</svelte:fragment>
+		<svelte:fragment slot="dd">
+			Can be used to read or write the current locale (E.g: <pre class="inline">"es-ES"</pre>).
+		</svelte:fragment>
+	</DefinitionEntry>
+	<DefinitionEntry background="white">
+		<svelte:fragment slot="dt"><pre>$locales</svelte:fragment>
+		<svelte:fragment slot="dd">
+			Contain al array of all the available locales (E.g: <pre class="inline">["es-ES", "en", "pt-BR"]</pre>).
+		</svelte:fragment>
+	</DefinitionEntry>
+	<DefinitionEntry background="gray">
+		<svelte:fragment slot="dt"><pre>$isLoading</svelte:fragment>
+		<svelte:fragment slot="dd">
+			Contains <pre class="inline">true</pre> when an asynchronous locale is still being loaded.
+		</svelte:fragment>
+	</DefinitionEntry>
+</dl>
+
+<p>
+	Lets build a component to change the current locale.
+</p>
+<Codeblock lang="jsx">{`<script>
+	import { t, locale, locales } from 'svelte-intl-precompile';
+</script>
+{#each $locales as loc}
+	<button type="button" class={loc === $locale && 'current'} on:click={() => $locale = loc}>{loc}</button>
+{/each}
+`}</Codeblock>
+
+<p>
+	The code above is quite straigtforward. We just iterate the list of available locales in <CodeInline>$locales</CodeInline> rendering a button
+	for each one. Clicking on a button will set the current locale in <CodeInline>$locale</CodeInline> to the new value.<br/>
+	Every translation in the app will update without refreshing the page.
+</p>
