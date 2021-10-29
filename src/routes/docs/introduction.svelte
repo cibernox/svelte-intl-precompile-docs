@@ -1,39 +1,21 @@
 <script context="module" lang="ts">
-import Playground from "$lib/playground.svelte";
-
+	import Playground from "$lib/playground.svelte";
+import { t } from "precompile-intl-runtime";
 	export const prerender = true;
 </script>
 
 <svelte:head>
-	<title>Introduction</title>
+	<title>{$t('introduction.title')}</title>
 </svelte:head>
 
-<h1 class="text-4xl font-semibold">Introduction</h1>
+<h1 class="text-4xl font-semibold">{$t('introduction.title')}</h1>
 
-<h2 class="text-2xl font-semibold">Why you'd want to use it?</h2>
+<h2 class="text-2xl font-semibold">{$t('introduction.subtitle.why-use-it')}</h2>
 
-<p>
-	Svelte-intl-precompile is an i18n library for svelte apps that aims to provide all the
-	features your app may need with the smallest possible penalty in both app size and runtime 
-	performance.
-</p>
-
-<p>
-	To accomplish that, it takes a different approach to most	internationalization libraries.
-	Much like Svelte.js analyzes and understands your code and at build time compiles it 
-	to minimal and efficient javascript, this library inspects your translations defined
-	in the <a href="https://lokalise.com/blog/complete-guide-to-icu-message-format" class="text-primary underline">ICU message syntax</a> 
-	and compiles them to small and efficient inline functions.
-</p>
-
-<p>If you use each and every feature supported by the ICU message syntax it will add around 2kb to your bundled after 
-	minification and compression. If you only use a few, it can go as low as 1kb. <br>
-</p>
-
-<p>
-	Since it doesn't have to parse and tokenize your app in the browser, it is also faster. Around 4 times faster rendering
-	a translation for the first time, and around 50% faster for already known translations.
-</p>
+<p>{$t('introduction.paragraph.why-use-it-1')}</p>
+<p>{@html $t('introduction.paragraph.why-use-it-2')}</p>
+<p>{$t('introduction.paragraph.why-use-it-3')}</p>
+<p>{$t('introduction.paragraph.why-use-it-4')}</p>
 
 <h2 class="text-2xl font-semibold">What? Show me the code</h2>
 
