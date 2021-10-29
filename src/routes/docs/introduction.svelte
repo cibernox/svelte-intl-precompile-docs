@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import Playground from "$lib/playground.svelte";
-import { t } from "precompile-intl-runtime";
+	import { t } from "precompile-intl-runtime";
 	export const prerender = true;
 </script>
 
@@ -17,26 +17,22 @@ import { t } from "precompile-intl-runtime";
 <p>{$t('introduction.paragraph.why-use-it-3')}</p>
 <p>{$t('introduction.paragraph.why-use-it-4')}</p>
 
-<h2 class="text-2xl font-semibold">What? Show me the code</h2>
+<h2 class="text-2xl font-semibold">{$t('introduction.subtitle.playground')}</h2>
 
-<p>There, play with it. Paste your own translations and see the transformed output.</p>
+<p>{$t('introduction.paragraph.playground-preface')}</p>
 
-<Playground></Playground>
+<Playground/>
 
-<h2 class="text-2xl font-semibold">What features does it have?</h2>
+<h2 class="text-2xl font-semibold">{$t('introduction.subtitle.features')}</h2>
 
-<p>
-	All the features supported by the ICU message syntax are supported<br>
-	It has an API almost completely compatible with <a href="https://github.com/kaisermann/svelte-i18n">svelte-i18n</a>,
-	another very popular and well designed internationalization library for Svelte.js
-</p>
+<p>{$t('introduction.paragraph.features-1')} <a class="text-primary underline" href="https://github.com/kaisermann/svelte-i18n">svelte-i18n</a> {$t('introduction.paragraph.features-2')}</p>
 
-<p>Its main features include:</p>
+<p>{$t('introduction.paragraph.features-3')}</p>
 
 <ul class="list-disc list-inside px-8">
-	<li>Translations with interpolation, interpolation, selected substranslations and all ICU features.</li>
-	<li>Formatters for dates, tims, numbers, ordinals, currencies all leveraging the native Intl API available in modern browsera and node.</li>
-	<li>A svelte-oriented API providing convenient to use stores that update automatically when locale or translations change.</li>
-	<li>A range functions to load locales asynchronously when needed or to extract the default locale from the request headers in SSR mode.</li>
-	<li>Full tree-shaking of all the above features that your app doesn't use.</li>
+	<li>{$t('introduction.list-items.features-1')}</li>
+	<li>{$t('introduction.list-items.features-2')}</li>
+	<li>{$t('introduction.list-items.features-3')}</li>
+	<li>{$t('introduction.list-items.features-4')}</li>
+	<li>{$t('introduction.list-items.features-5')}</li>
 </ul>
