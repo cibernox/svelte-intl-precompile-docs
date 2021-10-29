@@ -16,17 +16,18 @@
 
 <h1 class="text-4xl font-semibold">{$t('getting-started.title')}</h1>
 
-<h2 class="text-2xl font-semibold">Instalation</h2>
-<p>
-	Install svelte-intl-precompile as a runtime dependency of your sveltkit app.
-</p>
+<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.installation')}</h2>
+
+<p>{$t('getting-started.paragraph.installation-1')}</p>
+
 <Codeblock>npm install svelte-intl-precompile</Codeblock>
 
-<h2 class="text-2xl font-semibold">Create your translations</h2>
+<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.create-translations')}</h2>
 <p>
-	Next create a folder to put your translations files in. I like to use <CodeInline>/messages</CodeInline> or <CodeInline>/locales</CodeInline>
-	at the root of the project, but really any folder will do. 
+	{$t('getting-started.paragraph.create-translations-1')} <CodeInline>/messages</CodeInline> {$t('common.or')} <CodeInline>/locales</CodeInline>
+	{$t('getting-started.paragraph.create-translations-2')} 
 </p>
+
 <Codeblock>
 ├── locales
 │   ├── en.json
@@ -38,10 +39,7 @@
 └── svelte.config.js
 </Codeblock>
 
-<p>
-	I recommend using JSON files but you can use use javascript with an object as their default export. Whatever
-	the file extension, you translations inside are just regular strings in the ICU message syntax:
-</p>
+<p>{$t('getting-started.paragraph.create-translations-3')}</p>
 
 <Codeblock lang="js">
 {`{
@@ -51,7 +49,7 @@
 }`}
 </Codeblock>
 
-<p>I prefer shallow dictionaries like the one above, but you can also define translations using nested dictionaries.</p>
+<p>{$t('getting-started.paragraph.create-translations-4')}</p>
 
 <Codeblock lang="js">{`{
 	"placeholders": {
@@ -63,12 +61,9 @@
 }`}
 	</Codeblock>
 
-<h2 class="text-2xl font-semibold">Hook the compiler into SvelteKit</h2>
+<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.hook-into-sveltekit')}</h2>
 
-<p>
-	This library's build time compiler needs to hook into the build pipeline of your app. For that, add it
-	to the list of vite plugins in your <CodeInline>svelte.config.js</CodeInline>
-</p>
+<p>{$t('getting-started.paragraph.hook-into-sveltekit-1')}<CodeInline>/svelte.config.js</CodeInline>.</p>
 
 <Codeblock lang="js">
 {`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.js";
@@ -87,4 +82,4 @@ const config = {
 export default config;`}
 </Codeblock>
 
-<p>You are set, time to use the library.</p>
+<p>{$t('getting-started.paragraph.hook-into-sveltekit-2')}</p>

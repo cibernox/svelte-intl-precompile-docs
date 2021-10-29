@@ -16,11 +16,9 @@
 
 <h1 class="text-4xl font-semibold">{$t('configuration.title')}</h1>
 
-<h2 class="text-2xl font-semibold" id="sample-config">Configuration example</h2>
+<h2 class="text-2xl font-semibold" id="sample-config">{$t('configuration.subsection.example')}</h2>
 
-<p>
-	This is the minimal working example of the library's initialization. Put this in your <CodeInline>src/__layout.svelte</CodeInline> file.
-</p>
+<p>{$t('configuration.paragraph.example-1')} <CodeInline>src/__layout.svelte</CodeInline> {$t('configuration.paragraph.example-2')}</p>
 
 <Codeblock lang="html">
 {`<script context="module">
@@ -37,14 +35,11 @@
 <slot/>`}
 </Codeblock>
 
-<p>This will get you going but lets dive deeper on it more.</p>
+<p>{$t('configuration.paragraph.example-3')}</p>
 
-<h2 class="text-2xl font-semibold" id="static-locales">Load locales statically</h2>
+<h2 class="text-2xl font-semibold" id="static-locales">{$t('configuration.subsection.static-locales')}</h2>
 
-<p>
-	Like in the previous example, the easiest way to add your translation keys is to just import them as modules
-	and register them using <CodeInline>addMessages(langCode, translations)</CodeInline>.
-</p>
+<p>{$t('configuration.paragraph.static-locales-1')} <CodeInline>addMessages(langCode, translations)</CodeInline>.</p>
 
 <Codeblock lang="js">
 import en from '$locales/en.js';
@@ -53,28 +48,22 @@ addMessages('en', en);
 addMessages('es', es);	
 </Codeblock>
 
+<p>{$t('configuration.paragraph.static-locales-2')} <CodeInline>$locales</CodeInline> {$t('configuration.paragraph.static-locales-3')}</p>
+
+<p>{$t('configuration.paragraph.static-locales-4')}</p>
+
+<h2 class="text-2xl font-semibold" id="dynamic-locales">{$t('configuration.subsection.dynamic-locales')}</h2>
+
+
 <p>
-	Note that despite the fact that you defined your translations in JSON files, in here you are importing them as javascript modules
-	from `$locales`. This is because the compiler has transformed your translations into a module with inline functions at built time.
+	{$t('configuration.paragraph.dynamoc-locales-1')} <CodeInline>register(langCode, callback)</CodeInline>
+  {$t('configuration.paragraph.dynamoc-locales-2')} <CodeInline>waitLocale(locale = defaultLocale)</CodeInline> 
+  {$t('configuration.paragraph.dynamoc-locales-3')}
 </p>
 
 <p>
-	This approach is loading all those languages even if only one is being displayed. Usually okay when kicking out a new project 
-	or if you only have a few of keys, but when your app grows you should start loading languages on demand.
-</p>
-
-<h2 class="text-2xl font-semibold" id="dynamic-locales">Load locales dynamically</h2>
-
-<p>
-	Once you have a significant amount of translations and many locales it would be very wasteful to load every possible language
-	for every possible user when they will only see their selected one. The library has a <CodeInline>register(langCode, callback)</CodeInline>
-	function to dynamically import languages when the user selects it and a  <CodeInline>waitLocale(locale = defaultLocale)</CodeInline> to wait for
-	locales to be loaded.
-</p>
-
-<p>
-	If all your locales are dynamically loaded you want to stop the page from rendering initial locale has loaded. Calling it in 
-	Svete's <CodeInline>preload</CodeInline>	function with do exactly that.
+	{$t('configuration.paragraph.dynamoc-locales-4')} <CodeInline>preload</CodeInline> 
+  {$t('configuration.paragraph.dynamoc-locales-5')}
 </p>
 
 
@@ -89,12 +78,12 @@ export async function preload() {
 }
 `}</Codeblock>
 
-<h2 class="text-2xl font-semibold" id="init" >Default & fallback locales</h2>
+<h2 class="text-2xl font-semibold" id="init">{$t('configuration.subsection.init')}</h2>
 
 <p>
-	To the call to <CodeInline>init(libOptions)</CodeInline> the most important options are <CodeInline>initialLocale</CodeInline> 
-	and <CodeInline>fallbackLocale</CodeInline>. The first determines the locale in which the app will be initially rendered and 
-	the second the locale that will be checking when a translation is not found in the currently selected locale.
+	{$t('configuration.paragraph.init-1')} <CodeInline>init(libOptions)</CodeInline>
+  {$t('configuration.paragraph.init-2')} <CodeInline>initialLocale</CodeInline> 
+	{$t('common.and')} <CodeInline>fallbackLocale</CodeInline>{$t('configuration.paragraph.init-3')}
 </p>
 
 <Codeblock lang="js">{`init({
@@ -102,63 +91,42 @@ export async function preload() {
 	fallbackLocale: 'en'
 });`}</Codeblock>
 
-<p>
-	There's a lot we can do to achieve the best experience, like smartly initializing the <CodeInline>initialLocale</CodeInline> to
-	the users' configured locale if they are logged, read it from a cookie in case they are repeating visitors or choose it based on 
-	the requests `Accept-Language` header when doing SSR, but the most straigtforward is to detect it from the browser or the URL with the provided
-	utility functions.
-</p>
+<p>{$t('configuration.paragraph.init-4')} <CodeInline>initialLocale</CodeInline> {$t('configuration.paragraph.init-5')}</p>
 
-<h2 class="text-xl font-semibold" id="find-best-locale">Find the best locale</h2>
+<h2 class="text-xl font-semibold" id="find-best-locale">{$t('configuration.subsection.find-locale')}</h2>
 
 <p>
-  There are many valid strategies to select the best locale to pass to the <CodeInline>init()</CodeInline> functions. This library
-  provides helpers for the most common ones:
+  {$t('configuration.paragraph.find-locale-1')} <CodeInline>init()</CodeInline> {$t('configuration.paragraph.find-locale-2')}
 </p>
 
 <dl>
   <DefinitionEntry background="gray">
     <svelte:fragment slot="dt"><pre>getLocaleFromNavigator()</svelte:fragment>
-    <svelte:fragment slot="dd">Extracts the locale from browser, which in turn is the operative systems' locale.</svelte:fragment>
+    <svelte:fragment slot="dd">{$t('configuration.definitions.navigator')}</svelte:fragment>
   </DefinitionEntry>
   <DefinitionEntry background="white">
     <svelte:fragment slot="dt"><pre>getLocaleFromQueryString(key)</svelte:fragment>
-    <svelte:fragment slot="dd">
-      Extracts the locale on the given key of the query string of the URL.<br>
-      E.g <pre class="inline">getLocaleFromQueryString('lang')</pre> for <pre class="inline">/users?sort=name&amp;dir=asc&amp;lang=es</pre>      
-    </svelte:fragment>
+    <svelte:fragment slot="dd">{@html $t('configuration.definitions.query')}</svelte:fragment>
   </DefinitionEntry>
   <DefinitionEntry background="gray">
     <svelte:fragment slot="dt"><pre>getLocaleFromHash(key)</svelte:fragment>
-    <svelte:fragment slot="dd">
-      Like <pre class="inline">getLocaleFromQueryString</pre> but for the URL hash.<br>
-      E.g <pre class="inline">getLocaleFromHash('lang')</pre> for <pre class="inline">/users#sort=name&amp;dir=asc&amp;lang=es</pre>
-    </svelte:fragment>
+    <svelte:fragment slot="dd">{@html $t('configuration.definitions.hash')}</svelte:fragment>
   </DefinitionEntry>  
   <DefinitionEntry background="white">
     <svelte:fragment slot="dt"><pre>getLocaleFromPathname()</svelte:fragment>
-    <svelte:fragment slot="dd">
-      Extracts the locale from the path of the URL.<br>
-      E.g <pre class="inline">getLocaleFromPathname()</pre> for <pre class="inline">myapp.com/en-US/users</pre>      
-    </svelte:fragment>
+    <svelte:fragment slot="dd">{@html $t('configuration.definitions.path')}</svelte:fragment>
   </DefinitionEntry>
   <DefinitionEntry background="gray">
     <svelte:fragment slot="dt"><pre>getLocaleFromHostname()</svelte:fragment>
-    <svelte:fragment slot="dd">
-      Extracts the locale from host.<br>
-      E.g <pre class="inline">getLocaleFromHostname()</pre> for <pre class="inline">https://pt.myapp.com</pre>      
-    </svelte:fragment>
+    <svelte:fragment slot="dd">{@html $t('configuration.definitions.host')}</svelte:fragment>
   </DefinitionEntry>
 </dl>
 
-<h2 class="text-xl font-semibold" id="custom-formats">Custom formats</h2>
+<h2 class="text-xl font-semibold" id="custom-formats">{$t('configuration.subsection.custom-formats')}</h2>
 
 <p>
-  This library can format numbers, dates and times. It does it without adding significant weight to your app
-  by leverating the Intl API already present in all modern browsers and in Node.js.<br/>
-  By default you app can these formats, but you can add your own.
+  {@html $t('configuration.paragraph.custom-formats-1')}
 </p>
-<p></p>
 
 <Codeblock lang="js">{`{
   number: {
@@ -184,8 +152,8 @@ export async function preload() {
 }`}</Codeblock>
 
 <p>
-  If you want to define your own formats pass them on initialization using the <CodeInline>formats</CodeInline> option, which will be deep 
-  merged with the default formats listed above. The formats must be valid options to forward to 
+  {$t('configuration.paragraph.custom-formats-2')} <CodeInline>formats</CodeInline>
+  {$t('configuration.paragraph.custom-formats-3')}
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat" class="text-primary underline">Intl.DateTimeFormat</a>.
 </p>
 

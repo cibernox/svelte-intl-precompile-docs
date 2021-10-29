@@ -10,22 +10,22 @@
 
 <h1 class="text-4xl font-semibold">{$t('introduction.title')}</h1>
 
-<h2 class="text-2xl font-semibold">{$t('introduction.subtitle.why-use-it')}</h2>
+<h2 class="text-2xl font-semibold">{$t('introduction.subsection.why-use-it')}</h2>
 
 <p>{$t('introduction.paragraph.why-use-it-1')}</p>
 <p>{@html $t('introduction.paragraph.why-use-it-2')}</p>
 <p>{$t('introduction.paragraph.why-use-it-3')}</p>
 <p>{$t('introduction.paragraph.why-use-it-4')}</p>
 
-<h2 class="text-2xl font-semibold">{$t('introduction.subtitle.playground')}</h2>
+<h2 class="text-2xl font-semibold">{$t('introduction.subsection.playground')}</h2>
 
 <p>{$t('introduction.paragraph.playground-preface')}</p>
 
 <Playground/>
 
-<h2 class="text-2xl font-semibold">{$t('introduction.subtitle.features')}</h2>
+<h2 class="text-2xl font-semibold">{$t('introduction.subsection.features')}</h2>
 
-<p>{$t('introduction.paragraph.features-1')} <a class="text-primary underline" href="https://github.com/kaisermann/svelte-i18n">svelte-i18n</a> {$t('introduction.paragraph.features-2')}</p>
+<p>{@html $t('introduction.paragraph.features-1')} <a class="text-primary underline" href="https://github.com/kaisermann/svelte-i18n">svelte-i18n</a> {$t('introduction.paragraph.features-2')}</p>
 
 <p>{$t('introduction.paragraph.features-3')}</p>
 
