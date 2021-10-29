@@ -1,4 +1,6 @@
 <script context="module" lang="ts">
+import Playground from "$lib/playground.svelte";
+
 	export const prerender = true;
 </script>
 
@@ -20,12 +22,29 @@
 	To accomplish that, it takes a different approach to most	internationalization libraries.
 	Much like Svelte.js analyzes and understands your code and at build time compiles it 
 	to minimal and efficient javascript, this library inspects your translations defined
-	in the <a href="https://lokalise.com/blog/complete-guide-to-icu-message-format" class="text-primary underline">ICU message syntax</a> and compiles them to small and efficient inline functions.
+	in the <a href="https://lokalise.com/blog/complete-guide-to-icu-message-format" class="text-primary underline">ICU message syntax</a> 
+	and compiles them to small and efficient inline functions.
 </p>
 
-<h2 class="text-2xl font-semibold">Features</h2>
+<p>If you use each and every feature supported by the ICU message syntax it will add around 2kb to your bundled after 
+	minification and compression. If you only use a few, it can go as low as 1kb. <br>
+</p>
 
 <p>
+	Since it doesn't have to parse and tokenize your app in the browser, it is also faster. Around 4 times faster rendering
+	a translation for the first time, and around 50% faster for already known translations.
+</p>
+
+<h2 class="text-2xl font-semibold">What? Show me the code</h2>
+
+<p>There, play with it. Paste your own translations and see the transformed output.</p>
+
+<Playground></Playground>
+
+<h2 class="text-2xl font-semibold">What features does it have?</h2>
+
+<p>
+	All the features supported by the ICU message syntax are supported<br>
 	It has an API almost completely compatible with <a href="https://github.com/kaisermann/svelte-i18n">svelte-i18n</a>,
 	another very popular and well designed internationalization library for Svelte.js
 </p>

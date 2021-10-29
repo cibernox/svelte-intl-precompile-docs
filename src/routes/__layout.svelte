@@ -14,11 +14,11 @@
   import "../app.css";
 </script>
 
-<header class="fixed flex bg-white shadow-lg w-screen h-14 px-8">
-  <div class="flex flex-1 justify-start items-center">
+<header class="fixed flex justify-between content-center bg-white shadow-lg w-screen h-14 px-8">
+  <div class="flex items-center">
     <h1><a href="/">{$t('main.title')}</a></h1>
   </div>
-  <div class="flex flex-1 justify-end items-center">
+  <div class="flex items-center">
     {#each $locales as loc}
       <button on:click={() => $locale = loc}>{loc}</button>
     {/each}
