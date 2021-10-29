@@ -14,10 +14,17 @@ const config = {
       'light': '#c0c0d8',
       'white': '#fff',
     },
-    backgroundColor: (theme) => ({
-      ...theme('colors'),
-      'code': '#f6fafd',
-    }),
+    backgroundColor: (theme) => {
+      console.log('bg colors', {
+        ...theme('colors'),
+        'code': '#f6fafd',
+      });
+
+      return {
+        ...theme('colors'),
+        'code': '#f6fafd',
+      };
+    },
   },
 
   plugins: [],
