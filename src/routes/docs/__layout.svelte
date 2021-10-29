@@ -10,21 +10,21 @@
     <NavLink href="/docs/configuration">
       {$t('configuration.title')}
       <ul slot="submenu" class="pb-2 pl-4">
-        <li><a href="/docs/configuration#sample-config">Example</a></li>
-        <li><a href="/docs/configuration#static-locales">Load locales statically</a></li>
-        <li><a href="/docs/configuration#dynamic-locales">Load locales dynamically</a></li>
-        <li><a href="/docs/configuration#init">Default & Fallback locales</a></li>
-        <li><a href="/docs/configuration#find-best-locale">Find the best locale</a></li>
-        <li><a href="/docs/configuration#custom-formats">Custom formats</a></li>
+        <li><a href="/docs/configuration#sample-config">{$t('configuration.link.example')}</a></li>
+        <li><a href="/docs/configuration#static-locales">{$t('configuration.subsection.static-locales')}</a></li>
+        <li><a href="/docs/configuration#dynamic-locales">{$t('configuration.subsection.dynamic-locales')}</a></li>
+        <li><a href="/docs/configuration#init">{$t('configuration.subsection.init')}</a></li>
+        <li><a href="/docs/configuration#find-best-locale">{$t('configuration.subsection.find-locale')}</a></li>
+        <li><a href="/docs/configuration#custom-formats">{$t('configuration.subsection.custom-formats')}</a></li>
       </ul>
     </NavLink>
     <NavLink href="/docs/usage">
       {$t('usage.title')}
       <ul slot="submenu" class="pb-2 pl-4">
-        <li><a href="/docs/usage#basic-translation">Basic translation</a></li>
-        <li><a href="/docs/usage#passing-arguments">Passing arguments</a></li>
-        <li><a href="/docs/usage#formatting">Format date, time & number</a></li>
-        <li><a href="/docs/usage#other-stores">Other stores</a></li>
+        <li><a href="/docs/usage#basic-translation">{$t('usage.link.basic-translations')}</a></li>
+        <li><a href="/docs/usage#passing-arguments">{$t('usage.subsection.passing-arguments')}</a></li>
+        <li><a href="/docs/usage#formatting">{$t('usage.subsection.formatting')}</a></li>
+        <li><a href="/docs/usage#other-stores">{$t('usage.subsection.other-stores')}</a></li>
       </ul>
     </NavLink>
     <NavLink href="/docs/playground">{$t('playground.title')}</NavLink>
