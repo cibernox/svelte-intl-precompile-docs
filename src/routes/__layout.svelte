@@ -1,12 +1,11 @@
 <script context="module" lang="ts">
 	import { t, waitLocale, register, init, locale } from 'svelte-intl-precompile';
+  import { parseCookie } from '$lib/cookies';
   register('en', () => import('$locales/en.js'));
   register('es', () => import('$locales/es.js'));
   export async function load({ session }) {
-    console.log('session.acceptedLanguage', session.acceptedLanguage);
-    console.log('session', session);
     init({
-      initialLocale: session.acceptedLanguage || 'en',
+      initialLocale: parseCookie()?.lang || session.acceptedLanguage || 'en',
       fallbackLocale: 'en'
     });	
     await waitLocale()
