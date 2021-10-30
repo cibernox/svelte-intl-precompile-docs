@@ -16,7 +16,7 @@
 
 <header class="fixed flex justify-between content-center bg-white shadow-lg w-screen h-14 px-8">
   <div class="flex items-center">
-    <h1><a href="/">{$t('main.title')}</a></h1>
+    <h1 class="font-bold"><a href="/">{$t('main.title')}</a></h1>
   </div>
   <div class="flex items-center">
     <button on:click={() => $locale = 'en'}>
