@@ -3,6 +3,8 @@
   register('en', () => import('$locales/en.js'));
   register('es', () => import('$locales/es.js'));
   export async function load({ session }) {
+    console.log('session.acceptedLanguage', session.acceptedLanguage);
+    console.log('session', session);
     init({
       initialLocale: session.acceptedLanguage || 'en',
       fallbackLocale: 'en'
