@@ -50647,7 +50647,7 @@ var require_lib15 = __commonJS({
       }
       return false;
     }
-    var handle2 = {
+    var handle = {
       memoise() {
       },
       handle(member2, noDocumentAll) {
@@ -50873,7 +50873,7 @@ var require_lib15 = __commonJS({
       }
     };
     function memberExpressionToFunctions(path, visitor, state) {
-      path.traverse(visitor, Object.assign({}, handle2, state, {
+      path.traverse(visitor, Object.assign({}, handle, state, {
         memoiser: new AssignmentMemoiser()
       }));
     }
@@ -68279,38 +68279,6 @@ init_shims();
 // .svelte-kit/output/server/app.js
 init_shims();
 var import_cookie = __toModule(require_cookie());
-
-// node_modules/@lukeed/uuid/dist/index.mjs
-init_shims();
-var IDX = 256;
-var HEX = [];
-var BUFFER;
-while (IDX--)
-  HEX[IDX] = (IDX + 256).toString(16).substring(1);
-function v4() {
-  var i = 0, num, out = "";
-  if (!BUFFER || IDX + 16 > 256) {
-    BUFFER = Array(i = 256);
-    while (i--)
-      BUFFER[i] = 256 * Math.random() | 0;
-    i = IDX = 0;
-  }
-  for (; i < 16; i++) {
-    num = BUFFER[IDX + i];
-    if (i == 6)
-      out += HEX[num & 15 | 64];
-    else if (i == 8)
-      out += HEX[num & 63 | 128];
-    else
-      out += HEX[num];
-    if (i & 1 && i > 1 && i < 11)
-      out += "-";
-  }
-  IDX++;
-  return out;
-}
-
-// .svelte-kit/output/server/app.js
 var babel = __toModule(require_lib23());
 
 // node_modules/terser/main.js
@@ -94245,30 +94213,14 @@ function set_paths(paths) {
 }
 function set_prerendering(value) {
 }
-var handle = async ({ request, resolve: resolve2 }) => {
-  const cookies = import_cookie.default.parse(request.headers.cookie || "");
-  request.locals.userid = cookies.userid || v4();
-  if (request.query.has("_method")) {
-    request.method = request.query.get("_method").toUpperCase();
-  }
-  const response = await resolve2(request);
-  if (!cookies.userid) {
-    response.headers["set-cookie"] = import_cookie.default.serialize("userid", request.locals.userid, {
-      path: "/",
-      httpOnly: true
-    });
-  }
-  return response;
-};
 function getSession(request) {
   const cookies = import_cookie.default.parse(request.headers.cookie || "");
-  let acceptedLanguage = cookies.lang || request.headers["accept-language"] && request.headers["accept-language"].split(",")[0];
+  let acceptedLanguage = cookies;
   return { acceptedLanguage };
 }
 var user_hooks = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  handle,
   getSession
 });
 var template = ({ head, body }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="/favicon.png" />\n		' + head + '\n		<script async id="prism-script" src="/prism.js"><\/script>\n		<link rel="stylesheet" href="/prism.css">\n	</head>\n	<body>\n		<div id="svelte" class="text-dark">' + body + "</div>\n	</body>\n</html>\n";
@@ -94282,9 +94234,9 @@ function init$1(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-d6d1cc3c.js",
+      file: assets + "/_app/start-321b144e.js",
       css: [assets + "/_app/assets/start-464e9d0a.css"],
-      js: [assets + "/_app/start-d6d1cc3c.js", assets + "/_app/chunks/vendor-89d04da9.js", assets + "/_app/chunks/preload-helper-ec9aa979.js"]
+      js: [assets + "/_app/start-321b144e.js", assets + "/_app/chunks/vendor-89d04da9.js", assets + "/_app/chunks/preload-helper-ec9aa979.js"]
     },
     fetched: void 0,
     floc: false,
@@ -94404,7 +94356,7 @@ var module_lookup = {
     return usage;
   })
 };
-var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-718ad848.js", "css": ["assets/pages/__layout.svelte-366b4aa7.css"], "js": ["pages/__layout.svelte-718ad848.js", "chunks/preload-helper-ec9aa979.js", "chunks/vendor-89d04da9.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-468664df.js", "css": [], "js": ["error.svelte-468664df.js", "chunks/vendor-89d04da9.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-0cca0a3b.js", "css": [], "js": ["pages/index.svelte-0cca0a3b.js", "chunks/vendor-89d04da9.js"], "styles": [] }, "src/routes/docs/__layout.svelte": { "entry": "pages/docs/__layout.svelte-19a53374.js", "css": [], "js": ["pages/docs/__layout.svelte-19a53374.js", "chunks/vendor-89d04da9.js"], "styles": [] }, "src/routes/docs/getting-started.svelte": { "entry": "pages/docs/getting-started.svelte-04a79c6b.js", "css": [], "js": ["pages/docs/getting-started.svelte-04a79c6b.js", "chunks/vendor-89d04da9.js", "chunks/scroll-to-hash-2f718b98.js", "chunks/code-inline-9ee15333.js"], "styles": [] }, "src/routes/docs/configuration.svelte": { "entry": "pages/docs/configuration.svelte-9ee46b11.js", "css": [], "js": ["pages/docs/configuration.svelte-9ee46b11.js", "chunks/vendor-89d04da9.js", "chunks/scroll-to-hash-2f718b98.js", "chunks/code-inline-9ee15333.js", "chunks/definition-entry-1c1fb928.js"], "styles": [] }, "src/routes/docs/introduction.svelte": { "entry": "pages/docs/introduction.svelte-eb65d02c.js", "css": [], "js": ["pages/docs/introduction.svelte-eb65d02c.js", "chunks/vendor-89d04da9.js", "chunks/playground-40a4071c.js"], "styles": [] }, "src/routes/docs/playground.svelte": { "entry": "pages/docs/playground.svelte-4b2924f7.js", "css": [], "js": ["pages/docs/playground.svelte-4b2924f7.js", "chunks/vendor-89d04da9.js", "chunks/playground-40a4071c.js"], "styles": [] }, "src/routes/docs/usage.svelte": { "entry": "pages/docs/usage.svelte-42df0204.js", "css": [], "js": ["pages/docs/usage.svelte-42df0204.js", "chunks/vendor-89d04da9.js", "chunks/scroll-to-hash-2f718b98.js", "chunks/definition-entry-1c1fb928.js"], "styles": [] } };
+var metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-2a0ea94d.js", "css": ["assets/pages/__layout.svelte-366b4aa7.css"], "js": ["pages/__layout.svelte-2a0ea94d.js", "chunks/preload-helper-ec9aa979.js", "chunks/vendor-89d04da9.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-468664df.js", "css": [], "js": ["error.svelte-468664df.js", "chunks/vendor-89d04da9.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-0cca0a3b.js", "css": [], "js": ["pages/index.svelte-0cca0a3b.js", "chunks/vendor-89d04da9.js"], "styles": [] }, "src/routes/docs/__layout.svelte": { "entry": "pages/docs/__layout.svelte-19a53374.js", "css": [], "js": ["pages/docs/__layout.svelte-19a53374.js", "chunks/vendor-89d04da9.js"], "styles": [] }, "src/routes/docs/getting-started.svelte": { "entry": "pages/docs/getting-started.svelte-04a79c6b.js", "css": [], "js": ["pages/docs/getting-started.svelte-04a79c6b.js", "chunks/vendor-89d04da9.js", "chunks/scroll-to-hash-2f718b98.js", "chunks/code-inline-9ee15333.js"], "styles": [] }, "src/routes/docs/configuration.svelte": { "entry": "pages/docs/configuration.svelte-9ee46b11.js", "css": [], "js": ["pages/docs/configuration.svelte-9ee46b11.js", "chunks/vendor-89d04da9.js", "chunks/scroll-to-hash-2f718b98.js", "chunks/code-inline-9ee15333.js", "chunks/definition-entry-1c1fb928.js"], "styles": [] }, "src/routes/docs/introduction.svelte": { "entry": "pages/docs/introduction.svelte-eb65d02c.js", "css": [], "js": ["pages/docs/introduction.svelte-eb65d02c.js", "chunks/vendor-89d04da9.js", "chunks/playground-40a4071c.js"], "styles": [] }, "src/routes/docs/playground.svelte": { "entry": "pages/docs/playground.svelte-4b2924f7.js", "css": [], "js": ["pages/docs/playground.svelte-4b2924f7.js", "chunks/vendor-89d04da9.js", "chunks/playground-40a4071c.js"], "styles": [] }, "src/routes/docs/usage.svelte": { "entry": "pages/docs/usage.svelte-42df0204.js", "css": [], "js": ["pages/docs/usage.svelte-42df0204.js", "chunks/vendor-89d04da9.js", "chunks/scroll-to-hash-2f718b98.js", "chunks/definition-entry-1c1fb928.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -94791,7 +94743,7 @@ registerLocaleLoader("es", () => Promise.resolve().then(function() {
 }));
 async function load$1({ session }) {
   init({
-    initialLocale: session.acceptedLanguage || "en",
+    initialLocale: "en",
     fallbackLocale: "en"
   });
   await waitLocale();

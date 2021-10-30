@@ -6,7 +6,7 @@
 
   export async function load({ session }) {
     init({
-      initialLocale: session.acceptedLanguage || 'en',
+      initialLocale: 'en' || session.acceptedLanguage || 'en',
       fallbackLocale: 'en'
     });	
     await waitLocale()
