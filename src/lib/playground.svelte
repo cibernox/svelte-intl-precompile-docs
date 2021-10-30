@@ -21,8 +21,6 @@
 				}
 			})
 			.then(({ transformed, minified }) => {
-				console.log('transformed', transformed);
-				console.log('minified', minified);
 				[transformedTranslations, minifiedTranslations] = [transformed, minified];
 			})
 			.catch(() => {

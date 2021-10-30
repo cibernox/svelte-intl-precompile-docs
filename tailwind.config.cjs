@@ -15,11 +15,6 @@ const config = {
       'white': '#fff',
     },
     backgroundColor: (theme) => {
-      console.log('bg colors', {
-        ...theme('colors'),
-        'code': '#f6fafd',
-      });
-
       return {
         ...theme('colors'),
         'code': '#f6fafd',
