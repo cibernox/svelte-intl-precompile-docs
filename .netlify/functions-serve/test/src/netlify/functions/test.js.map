@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../Users/miguelcamba/code/own/svelte-intl-precompile-docs/netlify/functions/test.js"],
+  "sourceRoot": "/var/folders/x0/yxshzt_s4dj6r_824kmh98nh0000gn/T/tmp-53844-IAgxd6R9aKwh",
+  "sourcesContent": ["exports.handler = async function (request) {\n  return {\n    statusCode: 200,\n    body: request.headers.cookie\n  };\n};"],
+  "mappings": ";AAAA,QAAQ,UAAU,eAAgB,SAAS;AACzC,SAAO;AAAA,IACL,YAAY;AAAA,IACZ,MAAM,QAAQ,QAAQ;AAAA;AAAA;",
+  "names": []
+}
