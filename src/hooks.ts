@@ -4,6 +4,8 @@ import type { Handle } from '@sveltejs/kit';
 export const handle: Handle = async ({ request, resolve }) => {
 	const cookies = cookie.parse(request.headers.cookie || '');
 	const locale = cookies.lang || (request.headers["accept-language"] && request.headers["accept-language"].split(',')[0]);
+	console.log('Locale extracted from the cookies is:', locale);
+	console.log('request is:', JSON.stringify(request));
 	request.locals.locale = locale;
 
 	// TODO https://github.com/sveltejs/kit/issues/1046
@@ -17,6 +19,5 @@ export const handle: Handle = async ({ request, resolve }) => {
 };
 
 export function getSession(request) {
-  console.log(`[INFO] Request received in getSession is ${JSON.stringify(request)}`);
   return { acceptedLanguage: request.locals.locale };
 }
