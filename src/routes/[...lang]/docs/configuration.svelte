@@ -113,11 +113,11 @@ export async function preload() {
     <svelte:fragment slot="dd">{@html $t('configuration.definitions.hash')}</svelte:fragment>
   </DefinitionEntry>  
   <DefinitionEntry background="white">
-    <svelte:fragment slot="dt"><pre>getLocaleFromPathname()</svelte:fragment>
+    <svelte:fragment slot="dt"><pre>getLocaleFromPathname(regex)</svelte:fragment>
     <svelte:fragment slot="dd">{@html $t('configuration.definitions.path')}</svelte:fragment>
   </DefinitionEntry>
   <DefinitionEntry background="gray">
-    <svelte:fragment slot="dt"><pre>getLocaleFromHostname()</svelte:fragment>
+    <svelte:fragment slot="dt"><pre>getLocaleFromHostname(regex)</svelte:fragment>
     <svelte:fragment slot="dd">{@html $t('configuration.definitions.host')}</svelte:fragment>
   </DefinitionEntry>
 </dl>
