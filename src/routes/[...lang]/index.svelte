@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { t } from 'svelte-intl-precompile';
+	import { t, locale } from 'svelte-intl-precompile';
 	export const prerender = true;
 </script>
 <script lang="ts">
@@ -22,10 +22,10 @@
 		{$t('main.subtitle')}
 	</p>
 	<div class="flex justify-center">
-		<a href="/docs/introduction" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">
+		<a href="/{$locale}/docs/introduction" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">
 			{$t('introduction.title')}
 		</a>
-		<a href="/docs/getting-started" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">
+		<a href="/{$locale}/docs/getting-started" class="inline-block p-4 text-white m-2 bg-indigo-600 hover:bg-indigo-700 rounded">
 			{$t('getting-started.title')}
 		</a>
 	</div>
