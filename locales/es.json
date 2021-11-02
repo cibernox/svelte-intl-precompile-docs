@@ -29,7 +29,7 @@
   "getting-started.subsection.create-translations": "Crea tus tradicciones",
   "getting-started.paragraph.create-translations-1": "A continuación crea un directorio donde poner tus ficheros de traducciones. A mi me gusta usar",
   "getting-started.paragraph.create-translations-2": "en la raiz del proyecto, pero en realidad puedes colocar el directorio donde tu prefieras",
-  "getting-started.paragraph.create-translations-3": "Recomiento usar ficheros .json pero puedes también crear ficheros javascript que exporten un único objeto que contiene las traducciones. Cualquiera que sea tu preferencia, las traducciones son simples cadenas con la sintaxis ICU:",
+  "getting-started.paragraph.create-translations-3": "Recomiendo usar ficheros .json pero puedes también crear ficheros javascript que exporten un único objeto que contiene las traducciones. Cualquiera que sea tu preferencia, las traducciones son simples cadenas con la sintaxis ICU:",
   "getting-started.paragraph.create-translations-4": "Yo prefiero el diccionario de traducciones tenga un único nivel y usar puntos para crear jerarquías como el de arriba, pero también puedes anidar objectos como a continuación:",
   "getting-started.subsection.hook-into-sveltekit": "Acomplar el compilador a SvelteKit",
   "getting-started.paragraph.hook-into-sveltekit-1": "El compilador de esta necesita integrarse en el proceso de complilado de SvelteKit de tu proyecto. Para ello añadelo a las lista de plugins de vite en tu",
