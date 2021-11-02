@@ -23,6 +23,11 @@
   "introduction.list-items.features-4": "A range functions to load locales asynchronously when needed or to extract the default locale from the request headers in SSR mode.",
   "introduction.list-items.features-5": "Full tree-shaking of all the above features that your app doesn't use.",
 
+  "icu-crash-course.title": "ICU syntax crash course",
+  "icu-crash-course.subsection.why": "Why use the ICU message syntax",
+  "icu-crash-course.subsection.interpolations": "Interpolations",
+  "icu-crash-course.subsection.plurals": "Plurals",
+
   "getting-started.title": "Getting started",
   "getting-started.subsection.installation": "Installation",
   "getting-started.paragraph.installation-1": "Install svelte-intl-precompile as a runtime dependency of your sveltkit app.",
