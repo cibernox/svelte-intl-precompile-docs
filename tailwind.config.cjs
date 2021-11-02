@@ -3,7 +3,11 @@ const config = {
   purge: ["./src/**/*.{html,js,svelte,ts}"],
 
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        '76': '19rem',
+      },      
+    },
     fontFamily: {
       body: "Overpass,sans-serif"
     },
