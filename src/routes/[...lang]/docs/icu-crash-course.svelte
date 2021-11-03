@@ -12,10 +12,28 @@
 	let plural1 = 0;
 	let plural2 = 0;
 	let guestCount = 0;
+	let childGender = "male";
+	let holidaysStart = new Date();
+	let appointment = new Date();
+	let number = 0;
 	let interpolationKey = "Your have {numCats, plural, one {one cat} other {# cats}}";
 	let simplePlural = "Your have {numCats, plural, one {one cat} other {# cats}}";
 	let complexPlural = "Your have {numCats, plural, \n  =0 {no cats at all} \n  =1 {one single cat} \n  =2 {a couple cats} \n  =3 {a trio of cats} \n  =12 {a dozen cats} \n  other {exactly # cats}}";
 	let offsetPlural = "Mary {guestCount, plural, offset:1 \n  =0 {does not give a party.} \n  =1 {invites {guest} to her party.} \n  =2 {invites {guest} and one other person to her party.} \n  other {invites {guest} and # other people to her party.}}";
+	let select = "Your {childGender, select, male {son} female {daughter} other {child}} has won an award";
+	let dateString = "Your next holidays start on {holidayStart, date, full}";
+	let timeString = "Your doctor's appointment is today at {appointment, time, short}";
+	let numberString = "Your account balance is {num, number}";
+
+	function onDateChange(e) {
+		holidaysStart = new Date(e.srcElement.value)
+	}
+	function onTimeChange(e) {
+		let [h, m] = e.srcElement.value.split(':');
+		let d = new Date();
+		d.setHours(h, m)
+		appointment = d;
+	}
 </script>
 
 <svelte:head>
@@ -74,7 +92,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr class="bg-gray-50">
       <td>
 				<pre><code>{interpolationKey}</code></pre>
 			</td>
@@ -82,7 +100,7 @@
 				<input 
 					class="shadow border rounded py-2 px-3 text-gray-700 focus:outline-none" 
 					type="text" 
-					bind:value={interpolation} 
+					bind:value={childGender} 
 					placeholder="chosen">
 			</td>
       <td>{$t('icu-crash-course.table-cells.interpolations-2', { values: { chosen: interpolation } })}</td>
@@ -119,7 +137,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr class="bg-gray-50">
       <td>
 				<pre><code>{simplePlural}</code></pre>
 			</td>
@@ -145,7 +163,7 @@
 			</td>
       <td>{$t('icu-crash-course.table-cells.plurals-complex', { values: { count: plural2 } })}</td>
     </tr>
-    <tr>
+    <tr class="bg-gray-50">
       <td>
 				<pre><code>{offsetPlural}</code></pre>
 			</td>
@@ -185,74 +203,129 @@
 	optionally the helper can receive an offset that will be substracted to the value in the hashtag.
 </p>
 
-<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.installation')}</h2>
+<h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.select')}</h2>
 
-
-<!-- 
-<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.installation')}</h2>
-
-<p>{$t('getting-started.paragraph.installation-1')}</p>
-
-<Codeblock>npm install svelte-intl-precompile</Codeblock>
-
-<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.create-translations')}</h2>
 <p>
-	{$t('getting-started.paragraph.create-translations-1')} <CodeInline>/messages</CodeInline> {$t('common.or')} <CodeInline>/locales</CodeInline>
-	{$t('getting-started.paragraph.create-translations-2')} 
+	The <code class="inline">select</code> helper is used to choose among several translation paths depending on an argument.<br>
+	While it has many possible uses the most common one is for having gendered translations.
 </p>
 
-<Codeblock>
-├── locales
-│   ├── en.json
-│   ├── es.json
-├── src
-...
-├── static
-├── package.json
-└── svelte.config.js
-</Codeblock>
+<table class="table-auto w-full text-left">
+  <thead>
+    <tr>
+      <th>{$t('icu-crash-course.table-heads.definition')}</th>
+      <th>{$t('icu-crash-course.table-heads.values')}</th>
+      <th>{$t('icu-crash-course.table-heads.output')}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-gray-50">
+      <td>
+				<pre><code>{select}</code></pre>
+			</td>
+      <td>
+				<select value={childGender} on:change={(e) => childGender = e.target.value}>
+					<option selected={childGender === "male"} value="male">
+						{$t('icu-crash-course.table-cells.select-value-male')}
+					</option>
+					<option selected={childGender === "female"} value="female">
+						{$t('icu-crash-course.table-cells.select-value-female')}
+					</option>
+					<option selected={childGender === "unknown"} value="unknown">
+						{$t('icu-crash-course.table-cells.select-value-unknown')}
+					</option>
+				</select>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.select', { values: { childGender } })}</td>
+    </tr>
+	</tbody>
+</table>
 
-<p>{$t('getting-started.paragraph.create-translations-3')}</p>
+<h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.date')}</h2>
 
-<Codeblock lang="js">
-{`{
-	"recent.aria": "Find recently viewed tides",
-	"menu": "Menu",
-	"foot": "{count} {count, plural, =1 {foot} other {feet}}",
-}`}
-</Codeblock>
+<div>
+	This helper is used to format dates according to the current locale one of the default formats
+	or the custom ones you added when configuring the app.<br>
+	The default format are:
+	<ul class="list-disc list-inside ml-8">
+		<li><code class="inline">short</code>: The most compact date representation</li>
+		<li><code class="inline">medium</code>: Abbreviated textual representation</li>
+		<li><code class="inline">long</code>: Long textual representation</li>
+		<li><code class="inline">full</code>: The most verbose and complete date</li>
+	</ul>	
+</div>
 
-<p>{$t('getting-started.paragraph.create-translations-4')}</p>
+<table class="table-auto w-full text-left">
+  <thead>
+    <tr>
+      <th>{$t('icu-crash-course.table-heads.definition')}</th>
+      <th>{$t('icu-crash-course.table-heads.values')}</th>
+      <th>{$t('icu-crash-course.table-heads.output')}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-gray-50">
+      <td>
+				<pre><code>{dateString}</code></pre>
+			</td>
+      <td>
+				<input type="date" on:change={onDateChange}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.date', { values: { holidaysStart } })}</td>
+    </tr>
+	</tbody>
+</table>
 
-<Codeblock lang="js">{`{
-	"placeholders": {
-		"fullname": "John Smith",
-		"street-name": "13 Elm Street",
-		"subject": "Re: Hello"
-	},
-	"welcome-hero": "Welcome to Goliath Bank!",
-}`}
-	</Codeblock>
+<h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.time')}</h2>
 
-<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.hook-into-sveltekit')}</h2>
+<div>
+	Just like the date helpers but for formatting only the time part of a date.
+</div>
 
-<p>{$t('getting-started.paragraph.hook-into-sveltekit-1')}<CodeInline>/svelte.config.js</CodeInline>.</p>
+<table class="table-auto w-full text-left">
+  <thead>
+    <tr>
+      <th>{$t('icu-crash-course.table-heads.definition')}</th>
+      <th>{$t('icu-crash-course.table-heads.values')}</th>
+      <th>{$t('icu-crash-course.table-heads.output')}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-gray-50">
+      <td>
+				<pre><code>{timeString}</code></pre>
+			</td>
+      <td>
+				<input type="time" on:change={onTimeChange}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.time', { values: { appointment } })}</td>
+    </tr>
+	</tbody>
+</table>
 
-<Codeblock lang="js">
-{`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.js";
+<h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.number')}</h2>
 
-const config = {
-	kit: {
-		target: '#svelte',
-		vite: {
-			plugins: [
-				precompileIntl('locales') // if your translations are defined in /locales/[lang].json
-			]			
-		}		
-	}
-};
+<p>
+	Formats a number according to the rules of the current locale.
+</p>
 
-export default config;`}
-</Codeblock>
-
-<p>{$t('getting-started.paragraph.hook-into-sveltekit-2')}</p> -->
+<table class="table-auto w-full text-left">
+  <thead>
+    <tr>
+      <th>{$t('icu-crash-course.table-heads.definition')}</th>
+      <th>{$t('icu-crash-course.table-heads.values')}</th>
+      <th>{$t('icu-crash-course.table-heads.output')}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-gray-50">
+      <td>
+				<pre><code>{numberString}</code></pre>
+			</td>
+      <td>
+				<input type="number" bind:value={number}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.number', { values: { num: number } })}</td>
+    </tr>
+	</tbody>
+</table>

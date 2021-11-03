@@ -32,7 +32,7 @@
   </ul>
 </nav>
 <div class="ml-76">
-  <article class="px-14 py-8 space-y-10">
+  <article class="px-14 py-8 space-y-8">
     <slot/>
   </article>
 </div>
