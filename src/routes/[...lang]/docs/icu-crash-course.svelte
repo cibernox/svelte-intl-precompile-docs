@@ -6,8 +6,8 @@
 	import { t } from 'svelte-intl-precompile';
 	// import Codeblock from '$lib/codeblock.svelte';
 	// import CodeInline from '$lib/code-inline.svelte';
-	import scrollToHash from '$lib/scroll-to-hash';import { afterUpdate } from 'svelte';
-;
+	import scrollToHash from '$lib/scroll-to-hash';
+
 	scrollToHash();
 </script>
 
@@ -53,6 +53,27 @@
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.interpolations')}</h2>
 
+<p>
+	ICU messages support interpolating values, which will be properly sanitized so passing <code class="inline">undefined</code> will not interpolate 
+	as "undefined".
+</p>
+
+<table class="table-auto w-full text-left">
+  <thead>
+    <tr>
+      <th>Definition</th>
+      <th>Invocation</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{@html $t('icu-crash-course.rows.interpolations-1')}</td>
+      <td>{@html $t('icu-crash-course.rows.interpolations-2')}</td>
+      <td>{@html $t('icu-crash-course.rows.interpolations-3')}</td>
+    </tr>
+	</tbody>
+</table>
 
 <!-- 
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.installation')}</h2>

@@ -26,6 +26,9 @@
   "icu-crash-course.title": "ICU syntax crash course",
   "icu-crash-course.subsection.why": "Why use the ICU message syntax",
   "icu-crash-course.subsection.interpolations": "Interpolations",
+  "icu-crash-course.rows.interpolations-1": "\"color\": \"Your favorite color is &lcub;chosen&rcub;\"",
+  "icu-crash-course.rows.interpolations-2": "&lcub;$t('color', &lcub; values: &lcub; chosen: 'orange' &rcub; &rcub;)&rcub;",
+  "icu-crash-course.rows.interpolations-3": "Your favorite color is orange",
   "icu-crash-course.subsection.plurals": "Plurals",
 
   "getting-started.title": "Getting started",
