@@ -4,9 +4,6 @@
 
 <script lang="ts">
 	import { t } from 'svelte-intl-precompile';
-	import scrollToHash from '$lib/scroll-to-hash';
-
-	scrollToHash();
 	let interpolation = 'orange';
 	let guest = 'John';
 	let plural1 = 0;
@@ -42,46 +39,17 @@
 
 <h1 class="text-4xl font-semibold">{$t('icu-crash-course.title')}</h1>
 
-<p>
-	This library analyzes and compiles the translations authored in the ICU message syntax. While the ICU message syntax is
-	an independent proyect this is an accelerated course on why it's good and how to use the main features.
-</p>
+<p>{$t('icu-crash-course.paragraph.main-1')}</p>
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.why')}</h2>
 
-<p>
-	ICU stands for <em class="italic">International Components for Unicode</em>. While its popularity begun in C/C++ and Java,
-	it's the javascript ecosystem where it has become the defacto standard for internationalization, although it's also popular
-	in Python and PHP.
-</p>
-
-<p>
-	Internationalizing apps is a whole lot more than just mapping some keys to the appropiate translated string in a dictionary. Properly 
-	internationalized apps must handle all aspects of translation, including the way dates and times are formatted, what delimiters are used
-	in numbers to separate the thousands or the decimals, currencies and support gendered languages.
-</p>
-
-<p>
-	Even something as simple as plurals can get very complex depending on the language. English, German and Spanish have singular and plural, 
-	but some slavic languages have 3, and other languages like Arabic have 6 depending on the number of items being pluralized. Sometimes the threshold 
-	where we have to change from one plural form to the next varies depending on the reginal variant. <br>
-	English doesn't have many gendered words but French or Italian do, and the adjectives must match the noun's gender.<br>
-	<code class="inline">123456789</code> formatted in US regional variante of English will be <code class="inline">123,456,789</code> but in the Indian 
-	variant will be <code class="inline">12,34,56,789</code>. <br>
-	Formatting currencies the $ symbol goes before the amount, but the € goes after.
-</p>
-
-<p>
-	The ICU abstracts all this complexity from the developers and gives the real professional translators a meta language expressive enough to 
-	handle all the subtleties on they side.
-</p>
+<p>{$t('icu-crash-course.paragraph.why-1')}</p>
+<p>{@html $t('icu-crash-course.paragraph.why-2')}</p>
+<p>{@html $t('icu-crash-course.paragraph.why-3')}</p>
+<p>{$t('icu-crash-course.paragraph.why-4')}</p>
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.interpolations')}</h2>
-
-<p>
-	ICU messages support interpolating values, which will be properly sanitized so passing <code class="inline">undefined</code> will not interpolate 
-	as "undefined".
-</p>
+<p>{@html $t('icu-crash-course.paragraph.interpolations-1')}</p>
 
 <table class="table-auto w-full text-left">
   <thead>
@@ -103,29 +71,26 @@
 					bind:value={childGender} 
 					placeholder="chosen">
 			</td>
-      <td>{$t('icu-crash-course.table-cells.interpolations-2', { values: { chosen: interpolation } })}</td>
+      <td>{$t('icu-crash-course.table-cells.interpolations', { values: { chosen: interpolation } })}</td>
     </tr>
 	</tbody>
 </table>
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.plurals')}</h2>
 
-<p>
-	The second most used feature in any app is pluralization. The ICU syntax has a dedicated <code class="inline">plural</code>
-	helper to define plural translations that from very simple to quite complicated, all within the translation itself.
-</p>
+<p>{$t('icu-crash-course.paragraph.plurals-1')}</p>
 
 <div>
-	Each path for the plural is prefixed with the numeric qualifier. The possible qualifiers are:
+	{$t('icu-crash-course.paragraph.plurals-2')}
 	<ul class="list-disc list-inside ml-8">
 		<li>zero</li>
-		<li>one (singular)</li>
-		<li>two (dual)</li>
-		<li>few (paucal)</li>
-		<li>many (also used for fractions)</li>
-		<li>other (general plural form. The one used on languages with only one plural)</li>
+		<li>one {$t('icu-crash-course.list-items.one')}</li>
+		<li>two {$t('icu-crash-course.list-items.two')}</li>
+		<li>few {$t('icu-crash-course.list-items.few')}</li>
+		<li>many {$t('icu-crash-course.list-items.many')}</li>
+		<li>other {$t('icu-crash-course.list-items.other')}</li>
 	</ul>
-	Let's se some examples first:
+	{$t('icu-crash-course.paragraph.plurals-3')}
 </div>
 
 <table class="table-auto w-full text-left">
@@ -185,30 +150,13 @@
 	</tbody>
 </table>
 
-<p>
-	Some languages like English only leverage <code class="inline">one</code> and <code class="inline">other</code> but others
-	will be able to use the best plural form. In particular threshold value that divides <code class="inline">few</code> and <code class="inline">many</code>
-	is heavily cultural.
-</p>
-
-<p>
-	You can also specify translations for exact values using <code class="inline">=N</code>. When a number is specified
-	that way that translation will supersede the language's default behavior. <br>
-	For instance, in english you could use <code class="inline">=2</code> or <code class="inline">=12</code> to have different
-	translations specifically for a couple and a dozen instead of using the generic plural.
-</p>
-
-<p>
-	Lastly, plurals can also make us of the hashtag to print as number the value being used in the plural, and
-	optionally the helper can receive an offset that will be substracted to the value in the hashtag.
-</p>
+<p>{@html $t('icu-crash-course.paragraph.plurals-4')}</p>
+<p>{@html $t('icu-crash-course.paragraph.plurals-5')}</p>
+<p>{$t('icu-crash-course.paragraph.plurals-6')}</p>
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.select')}</h2>
 
-<p>
-	The <code class="inline">select</code> helper is used to choose among several translation paths depending on an argument.<br>
-	While it has many possible uses the most common one is for having gendered translations.
-</p>
+<p>{@html $t('icu-crash-course.paragraph.select-1')}</p>
 
 <table class="table-auto w-full text-left">
   <thead>
@@ -244,14 +192,12 @@
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.date')}</h2>
 
 <div>
-	This helper is used to format dates according to the current locale one of the default formats
-	or the custom ones you added when configuring the app.<br>
-	The default format are:
+	{@html $t('icu-crash-course.paragraph.date-1')}
 	<ul class="list-disc list-inside ml-8">
-		<li><code class="inline">short</code>: The most compact date representation</li>
-		<li><code class="inline">medium</code>: Abbreviated textual representation</li>
-		<li><code class="inline">long</code>: Long textual representation</li>
-		<li><code class="inline">full</code>: The most verbose and complete date</li>
+		<li><code class="inline">short</code>{$t('icu-crash-course.list-items.short')}</li>
+		<li><code class="inline">medium</code>{$t('icu-crash-course.list-items.medium')}</li>
+		<li><code class="inline">long</code>{$t('icu-crash-course.list-items.long')}</li>
+		<li><code class="inline">full</code>{$t('icu-crash-course.list-items.full')}</li>
 	</ul>	
 </div>
 
@@ -278,9 +224,7 @@
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.time')}</h2>
 
-<div>
-	Just like the date helpers but for formatting only the time part of a date.
-</div>
+<p>{$t('icu-crash-course.paragraph.time')}</p>
 
 <table class="table-auto w-full text-left">
   <thead>
@@ -305,9 +249,7 @@
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.number')}</h2>
 
-<p>
-	Formats a number according to the rules of the current locale.
-</p>
+<p>{$t('icu-crash-course.paragraph.number')}</p>
 
 <table class="table-auto w-full text-left">
   <thead>
