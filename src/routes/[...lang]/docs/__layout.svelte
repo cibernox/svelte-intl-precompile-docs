@@ -6,6 +6,7 @@
 <nav class="fixed w-76 h-screen shadow-xl bg-gray-500">
   <ul class="pt-4 pl-8 pr-8 text-white">
     <NavLink href="/{$locale}/docs/introduction">{$t('introduction.title')}</NavLink>
+    <NavLink href="/{$locale}/docs/icu-crash-course">{$t('icu-crash-course.title')}</NavLink>
     <NavLink href="/{$locale}/docs/getting-started">{$t('getting-started.title')}</NavLink>
     <NavLink href="/{$locale}/docs/configuration">
       {$t('configuration.title')}
@@ -31,7 +32,7 @@
   </ul>
 </nav>
 <div class="ml-76">
-  <article class="px-14 py-8 space-y-10">
+  <article class="px-14 py-8 space-y-8">
     <slot/>
   </article>
 </div>
