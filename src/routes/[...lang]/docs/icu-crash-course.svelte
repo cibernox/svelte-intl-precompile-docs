@@ -43,7 +43,7 @@
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.why')}</h2>
 
-<p>{$t('icu-crash-course.paragraph.why-1')}</p>
+<p>{@html $t('icu-crash-course.paragraph.why-1')}</p>
 <p>{@html $t('icu-crash-course.paragraph.why-2')}</p>
 <p>{@html $t('icu-crash-course.paragraph.why-3')}</p>
 <p>{$t('icu-crash-course.paragraph.why-4')}</p>
@@ -78,7 +78,7 @@
 
 <h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.plurals')}</h2>
 
-<p>{$t('icu-crash-course.paragraph.plurals-1')}</p>
+<p>{@html $t('icu-crash-course.paragraph.plurals-1')}</p>
 
 <div>
 	{$t('icu-crash-course.paragraph.plurals-2')}

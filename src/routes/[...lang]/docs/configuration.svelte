@@ -91,7 +91,7 @@ export async function preload() {
 	fallbackLocale: 'en'
 });`}</Codeblock>
 
-<p>{$t('configuration.paragraph.init-4')} <CodeInline>initialLocale</CodeInline> {$t('configuration.paragraph.init-5')}</p>
+<p>{$t('configuration.paragraph.init-4')} <CodeInline>initialLocale</CodeInline> {@html $t('configuration.paragraph.init-5')}</p>
 
 <h2 class="text-xl font-semibold" id="find-best-locale">{$t('configuration.subsection.find-locale')}</h2>
 
