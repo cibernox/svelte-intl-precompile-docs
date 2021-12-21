@@ -1,9 +1,9 @@
 <script context="module" lang="ts">
-	import { t, waitLocale, register, init } from 'svelte-intl-precompile';
+  import { registerAll } from '$locales';
+  import { t, waitLocale, init } from 'svelte-intl-precompile';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
-  register('en', () => import('$locales/en.js'));
-  register('es', () => import('$locales/es.js'));
+  registerAll();
   let defaultLang = 'en';
   let localeRegex = /^\/((es|en)(-\w\w)?)/;
   export async function load({ page: { path } }) {

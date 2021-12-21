@@ -54,16 +54,20 @@ addMessages('es', es);
 
 <h2 class="text-2xl font-semibold" id="dynamic-locales">{$t('configuration.subsection.dynamic-locales')}</h2>
 
-
 <p>
-	{$t('configuration.paragraph.dynamoc-locales-1')} <CodeInline>register(langCode, callback)</CodeInline>
-  {$t('configuration.paragraph.dynamoc-locales-2')} <CodeInline>waitLocale(locale = defaultLocale)</CodeInline> 
-  {$t('configuration.paragraph.dynamoc-locales-3')}
+	{$t('configuration.paragraph.dynamic-locales-1')} <CodeInline>register(langCode, callback)</CodeInline>
+  {$t('configuration.paragraph.dynamic-locales-2')} <CodeInline>waitLocale(locale = defaultLocale)</CodeInline> 
+  {$t('configuration.paragraph.dynamic-locales-3')}
 </p>
 
 <p>
-	{$t('configuration.paragraph.dynamoc-locales-4')} <CodeInline>preload</CodeInline> 
-  {$t('configuration.paragraph.dynamoc-locales-5')}
+	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>preload</CodeInline> 
+  {$t('configuration.paragraph.dynamic-locales-5')}
+</p>
+
+<p>
+	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>preload</CodeInline> 
+  {$t('configuration.paragraph.dynamic-locales-5')}
 </p>
 
 
@@ -77,6 +81,30 @@ export async function preload() {
   return waitLocale(); // awaits the default locale, "en" in this case.
 }
 `}</Codeblock>
+
+<h2 class="text-2xl font-semibold" id="dynamic-locales">{$t('configuration.subsection.dynamic-locales-shorthand')}</h2>
+
+<p>
+  {$t('configuration.paragraph.dynamic-locales-shorthand-1')} <CodeInline>$locales</CodeInline> 
+  {$t('configuration.paragraph.dynamic-locales-shorthand-2')} <CodeInline>registerAll</CodeInline> {$t('common.and')} <CodeInline>availableLocales</CodeInline>.
+</p>
+
+<p>
+  {$t('configuration.paragraph.dynamic-locales-shorthand-3')} <CodeInline>register(langCode, callback)</CodeInline> 
+  {@html $t('configuration.paragraph.dynamic-locales-shorthand-4')}
+</p>
+
+<Codeblock lang="js">{`
+  import { init, waitLocale } from 'svelte-intl-precompile';
+  import { registerAll, availableLocales } from '$locales';
+  
+  registerAll();
+  init({ initialLocale: selectBestMatchingLocale(availableLocales) });
+  
+  export async function preload() {
+    return waitLocale();
+  }
+  `}</Codeblock>
 
 <h2 class="text-2xl font-semibold" id="init">{$t('configuration.subsection.init')}</h2>
 

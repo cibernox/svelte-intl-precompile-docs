@@ -94514,16 +94514,16 @@ addMessages(&#39;es&#39;, es);
 <h2 class="${"text-2xl font-semibold"}" id="${"dynamic-locales"}">${escape($t("configuration.subsection.dynamic-locales"))}</h2>
 
 
-<p>${escape($t("configuration.paragraph.dynamoc-locales-1"))} ${validate_component(Code_inline, "CodeInline").$$render($$result, {}, {}, {
+<p>${escape($t("configuration.paragraph.dynamic-locales-1"))} ${validate_component(Code_inline, "CodeInline").$$render($$result, {}, {}, {
     default: () => `register(langCode, callback)`
   })}
-  ${escape($t("configuration.paragraph.dynamoc-locales-2"))} ${validate_component(Code_inline, "CodeInline").$$render($$result, {}, {}, {
+  ${escape($t("configuration.paragraph.dynamic-locales-2"))} ${validate_component(Code_inline, "CodeInline").$$render($$result, {}, {}, {
     default: () => `waitLocale(locale = defaultLocale)`
   })} 
-  ${escape($t("configuration.paragraph.dynamoc-locales-3"))}</p>
+  ${escape($t("configuration.paragraph.dynamic-locales-3"))}</p>
 
-<p>${escape($t("configuration.paragraph.dynamoc-locales-4"))} ${validate_component(Code_inline, "CodeInline").$$render($$result, {}, {}, { default: () => `preload` })} 
-  ${escape($t("configuration.paragraph.dynamoc-locales-5"))}</p>
+<p>${escape($t("configuration.paragraph.dynamic-locales-4"))} ${validate_component(Code_inline, "CodeInline").$$render($$result, {}, {}, { default: () => `preload` })} 
+  ${escape($t("configuration.paragraph.dynamic-locales-5"))}</p>
 
 
 ${validate_component(Codeblock, "Codeblock").$$render($$result, { lang: "js" }, {}, {
@@ -94887,11 +94887,11 @@ var en = {
   "configuration.paragraph.static-locales-3": ". This is because the compiler has transformed your translations into a module with inline functions at built time.",
   "configuration.paragraph.static-locales-4": "This approach is loading all those languages even if only one is being displayed. Usually okay when kicking out a new project or if you only have a few of keys, but when your app grows you should start loading languages on demand.",
   "configuration.subsection.dynamic-locales": "Load locales dynamically",
-  "configuration.paragraph.dynamoc-locales-1": "Once you have a significant amount of translations and many locales it would be very wasteful to load every possible language for every possible user when they will only see their selected one. The library has a",
-  "configuration.paragraph.dynamoc-locales-2": "function to dynamically import languages when the user selects it and a",
-  "configuration.paragraph.dynamoc-locales-3": "to wait for locales to be loaded.",
-  "configuration.paragraph.dynamoc-locales-4": "If all your locales are dynamically loaded you want to stop the page from rendering initial locale has loaded. Calling it in Svete's",
-  "configuration.paragraph.dynamoc-locales-5": "function with do exactly that.",
+  "configuration.paragraph.dynamic-locales-1": "Once you have a significant amount of translations and many locales it would be very wasteful to load every possible language for every possible user when they will only see their selected one. The library has a",
+  "configuration.paragraph.dynamic-locales-2": "function to dynamically import languages when the user selects it and a",
+  "configuration.paragraph.dynamic-locales-3": "to wait for locales to be loaded.",
+  "configuration.paragraph.dynamic-locales-4": "If all your locales are dynamically loaded you want to stop the page from rendering initial locale has loaded. Calling it in Svete's",
+  "configuration.paragraph.dynamic-locales-5": "function with do exactly that.",
   "configuration.subsection.init": "Default & fallback locales",
   "configuration.paragraph.init-1": "To the call to",
   "configuration.paragraph.init-2": "the most important options are",
@@ -94983,11 +94983,11 @@ var es = {
   "configuration.paragraph.static-locales-3": ". Esto es porque la librer\xEDa ha transformado las traduccions en un m\xF3dulo con funciones durante la compilaci\xF3n.",
   "configuration.paragraph.static-locales-4": "Esta estrategia est\xE1 cargando todos esos idiomas incluso si solamente uno va a acabar siendo mostrado. Esto no suele ser un problema cuando est\xE1n comenzando el desarollo de un nuevo proyecto o si tu proyecto tiene pocas tradicciones o pocos idiomas, pero cuando tu aplicaci\xF3n empieza a crecer deber\xEDa empezar a cargar los paquetes de traducciones bajo demanda.",
   "configuration.subsection.dynamic-locales": "A\xF1adir idiomas din\xE1micamente",
-  "configuration.paragraph.dynamoc-locales-1": "Una ver tienes una cantidad significativa de traducciones en varios idiomas ser\xEDa muy ineficiente cargar todos ellos para cada usuario cuando solamente va a utilizar el que haya seleccionado. La librer\xEDa tiene una funci\xF3n",
-  "configuration.paragraph.dynamoc-locales-2": "para din\xE1micamente importar idiomas cuando el usuario lo seleccione y otra funci\xF3n",
-  "configuration.paragraph.dynamoc-locales-3": "para esperar a que la carga haya finalizado.",
-  "configuration.paragraph.dynamoc-locales-4": "Si todos tus idiomas se cargan din\xE1micamente debes impedir que la app prosiga el renderizado hasta que el idioma inicial haya sido cargado. Revolviendo el resultado de invocarla desde la funci\xF3n",
-  "configuration.paragraph.dynamoc-locales-5": "proporcionada por SvelteKit har\xE1 exactamente eso.",
+  "configuration.paragraph.dynamic-locales-1": "Una ver tienes una cantidad significativa de traducciones en varios idiomas ser\xEDa muy ineficiente cargar todos ellos para cada usuario cuando solamente va a utilizar el que haya seleccionado. La librer\xEDa tiene una funci\xF3n",
+  "configuration.paragraph.dynamic-locales-2": "para din\xE1micamente importar idiomas cuando el usuario lo seleccione y otra funci\xF3n",
+  "configuration.paragraph.dynamic-locales-3": "para esperar a que la carga haya finalizado.",
+  "configuration.paragraph.dynamic-locales-4": "Si todos tus idiomas se cargan din\xE1micamente debes impedir que la app prosiga el renderizado hasta que el idioma inicial haya sido cargado. Revolviendo el resultado de invocarla desde la funci\xF3n",
+  "configuration.paragraph.dynamic-locales-5": "proporcionada por SvelteKit har\xE1 exactamente eso.",
   "configuration.subsection.init": "Idiomas inicial y de rescate",
   "configuration.paragraph.init-1": "A la invocaci\xF3n",
   "configuration.paragraph.init-2": "las opciones m\xE1s importantes son",
