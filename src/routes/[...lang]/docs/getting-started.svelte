@@ -83,3 +83,23 @@ export default config;`}
 </Codeblock>
 
 <p>{$t('getting-started.paragraph.hook-into-sveltekit-2')}</p>
+
+<h2 class="text-2xl font-semibold">{$t('getting-started.subsection.hook-into-vite')}</h2>
+
+<p>{$t('getting-started.paragraph.hook-into-vite-1')}<CodeInline>/vite.config.js</CodeInline>.</p>
+
+<Codeblock lang="js">
+{`import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.cjs";
+
+export default defineConfig({
+  resolve: {
+    dedupe: ["svelte"]
+  },
+  plugins: [
+    svelte(),
+    precompileIntl("locales"),
+  ],
+});`}
+</Codeblock>

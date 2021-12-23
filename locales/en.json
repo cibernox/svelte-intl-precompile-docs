@@ -83,6 +83,8 @@
   "getting-started.subsection.hook-into-sveltekit": "Hook the compiler into SvelteKit",
   "getting-started.paragraph.hook-into-sveltekit-1": "This library's build time compiler needs to hook into the build pipeline of your app. For that, add it to the list of vite plugins in your",
   "getting-started.paragraph.hook-into-sveltekit-2": "You are set, time to use the library.",
+  "getting-started.subsection.hook-into-vite": "Hook the compiler into plain Vite.js",
+  "getting-started.paragraph.hook-into-vite-1": "If you are not using SvelteKit but raw Vite.js, the configuration is very similar. At the end SvelteKit uses Vite.js underneath. Import the compiler and pass it to the list of plugins in",
 
   "configuration.title": "Configuration",
   "configuration.subsection.example": "Configuration example",

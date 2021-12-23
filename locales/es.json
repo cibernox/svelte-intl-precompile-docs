@@ -82,6 +82,8 @@
   "getting-started.subsection.hook-into-sveltekit": "Acomplar el compilador a SvelteKit",
   "getting-started.paragraph.hook-into-sveltekit-1": "El compilador de esta necesita integrarse en el proceso de complilado de SvelteKit de tu proyecto. Para ello añadelo a las lista de plugins de vite en tu",
   "getting-started.paragraph.hook-into-sveltekit-2": "Y ya está todo listo. Tiempo de usar la librería.",
+  "getting-started.subsection.hook-into-vite": "Acoplar el compilador a Vite.js",
+  "getting-started.paragraph.hook-into-vite-1": "Si no estás usando SvelteKit sino simplemente Vite.js la configuración es muy similar. Al fin y al cabo SvelteKit usa Vite.js internamente. Importa el compilador y añádelo a la lista de plugins en ",
 
   "configuration.title": "Configuración",
   "configuration.subsection.example": "Ejemplo de configuración",
