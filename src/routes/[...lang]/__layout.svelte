@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   registerAll();
   let defaultLang = 'en';
-  let localeRegex = /^\/((es|en|gl)(-\w\w)?)/;
+  let localeRegex = /^\/((es|en|gl|ja)(-\w\w)?)/;
   export async function load({ page: { path } }) {
     const lang = (localeRegex.exec(path) || [null, defaultLang])[1];
     init({
@@ -222,6 +222,9 @@
         <path d="m295.969 237.796-3.774 1.885 3.397 2.138 4.023-2.013-3.646-2.01" style="font-size:12px;fill:red" transform="matrix(1 0 0 1.00008 -.04 -96.055)"/>
         <path d="m295.969 237.796-3.774 1.885 3.397 2.138 4.023-2.013-3.646-2.01" style="font-size:12px;fill:none;stroke:#000;stroke-width:.50199842" transform="matrix(1 0 0 1.00008 -.04 -96.055)"/>
       </svg>      
+    </button>
+    <button on:click={() => setLocale('ja')}>
+      <svg class="h-6 w-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><rect fill="#fff" height="600" width="900"/><circle fill="#bc002d" cx="450" cy="300" r="180"/></svg>
     </button>
     <a href="/docs/introduction" class="m-2">Docs</a>
     <a href="https://github.com/cibernox/svelte-intl-precompile" class="h-6 w-6 m-2 fill-current">
