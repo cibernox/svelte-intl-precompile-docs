@@ -1,17 +1,17 @@
 <script context="module" lang="ts">
-  import { registerAll } from '$locales';
+  import { registerAll, availableLocales } from '$locales';
   import { t, waitLocale, init } from 'svelte-intl-precompile';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   registerAll();
   let defaultLang = 'en';
-  let localeRegex = /^\/((es|en|gl)(-\w\w)?)/;
+  let localeRegex = new RegExp(`^/(${availableLocales.join('|')})/`)
   export async function load({ page: { path } }) {
     const lang = (localeRegex.exec(path) || [null, defaultLang])[1];
     init({
       initialLocale: lang,
-      fallbackLocale: 'en'
-    });	    
+      fallbackLocale: defaultLang
+    });
     await waitLocale()
     return {};
   }
@@ -21,7 +21,10 @@
     if ($page.path === '/') {
       goto('/' + code, { noscroll: true });
     } else {
-      let newPath = $page.path.replace(localeRegex, '/' + code);
+      let newPath = $page.path.replace(localeRegex, '/' + code + '/');
+      if (newPath === $page.path && !localeRegex.exec($page.path)) {
+        newPath = `/${code}${$page.path}`
+      }
       goto(newPath, { noscroll: true })
     }
   }
