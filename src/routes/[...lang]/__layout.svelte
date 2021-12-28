@@ -5,7 +5,7 @@
   import { page } from '$app/stores';
   registerAll();
   let defaultLang = 'en';
-  let localeRegex = new RegExp(`^/(${availableLocales.join('|')})/`)
+  let localeRegex = new RegExp(`^/(${availableLocales.join('|')})/?`)
   export async function load({ page: { path } }) {
     const lang = (localeRegex.exec(path) || [null, defaultLang])[1];
     init({
