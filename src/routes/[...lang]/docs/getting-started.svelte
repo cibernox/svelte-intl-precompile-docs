@@ -24,7 +24,11 @@
 
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.create-translations')}</h2>
 <p>
-	{$t('getting-started.paragraph.create-translations-1')} <CodeInline>/messages</CodeInline> {$t('common.or')} <CodeInline>/locales</CodeInline>
+	{@html $t('getting-started.paragraph.create-translations-1', { values: {
+		dir1: '/messages',
+		or:   $t('common.or'),
+		dir2: '/locales',
+	} })}
 	{$t('getting-started.paragraph.create-translations-2')} 
 </p>
 
@@ -63,7 +67,7 @@
 
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.hook-into-sveltekit')}</h2>
 
-<p>{$t('getting-started.paragraph.hook-into-sveltekit-1')}<CodeInline>/svelte.config.js</CodeInline>.</p>
+<p>{@html $t('getting-started.paragraph.hook-into-sveltekit-1', { values: { path: '/svelte.config.js' }})}</p>
 
 <Codeblock lang="js">
 {`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.js";
@@ -86,7 +90,7 @@ export default config;`}
 
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.hook-into-vite')}</h2>
 
-<p>{$t('getting-started.paragraph.hook-into-vite-1')}<CodeInline>/vite.config.js</CodeInline>.</p>
+<p>{@html $t('getting-started.paragraph.hook-into-vite-1', { values: { path:'/vite.config.js' }})}</p>
 
 <Codeblock lang="js">
 {`import { defineConfig } from "vite";
