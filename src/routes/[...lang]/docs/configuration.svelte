@@ -23,8 +23,8 @@
 <Codeblock lang="html">
 {`<script context="module">
 	import { addMessages, init } from 'svelte-intl-precompile';
-	import en from '$locales/en.js';
-	import es from '$locales/es.js';
+	import en from '$locales/en';
+	import es from '$locales/es';
 	addMessages('en', en);
 	addMessages('es', es);
 	init({
@@ -73,8 +73,8 @@ addMessages('es', es);
 
 <Codeblock lang="js">{`
 import { init, register, waitLocale } from 'svelte-intl-precompile';
-register('en', () => import('$locales/en.js'));
-register('es', () => import('$locales/es.js'));
+register('en', () => import('$locales/en'));
+register('es', () => import('$locales/es'));
 init({ initialLocale: en });
 
 export async function preload() {

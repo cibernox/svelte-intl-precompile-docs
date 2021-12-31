@@ -61,12 +61,24 @@
 }`}
 	</Codeblock>
 
+<h3 class="text-l font-semibold">{$t('getting-started.paragraph.create-translations-5')}</h3>
+
+<p>{@html $t('getting-started.paragraph.create-translations-6')}</p>
+
+<h3 class="text-l font-semibold">{$t('getting-started.paragraph.create-translations-7')}</h3>
+
+<p>{$t('getting-started.paragraph.create-translations-8')}</p>
+
+<h3 class="text-l font-semibold">{$t('getting-started.paragraph.create-translations-9')}</h3>
+
+<p>{$t('getting-started.paragraph.create-translations-10')}</p>
+
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.hook-into-sveltekit')}</h2>
 
 <p>{$t('getting-started.paragraph.hook-into-sveltekit-1')}<CodeInline>/svelte.config.js</CodeInline>.</p>
 
 <Codeblock lang="js">
-{`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.js";
+{`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin";
 
 const config = {
 	kit: {
@@ -91,7 +103,7 @@ export default config;`}
 <Codeblock lang="js">
 {`import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
-import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.cjs";
+import precompileIntl from "svelte-intl-precompile/sveltekit-plugin";
 
 export default defineConfig({
   resolve: {
