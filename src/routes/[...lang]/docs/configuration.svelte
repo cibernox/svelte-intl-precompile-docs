@@ -42,8 +42,8 @@
 <p>{$t('configuration.paragraph.static-locales-1')} <CodeInline>addMessages(langCode, translations)</CodeInline>.</p>
 
 <Codeblock lang="js">
-import en from '$locales/en.js';
-import es from '$locales/es.js';	
+import en from '$locales/en';
+import es from '$locales/es';	
 addMessages('en', en);
 addMessages('es', es);	
 </Codeblock>

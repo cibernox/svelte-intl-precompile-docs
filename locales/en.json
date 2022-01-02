@@ -99,7 +99,7 @@
   "configuration.paragraph.example-3": "This will get you going but lets dive deeper on it more.",
   "configuration.subsection.static-locales": "Load locales statically",
   "configuration.paragraph.static-locales-1": "Like in the previous example, the easiest way to add your translation keys is to just import them as modules and register them using",
-  "configuration.paragraph.static-locales-2": "Note that despite the fact that you defined your translations in JSON files, in here you are importing them as javascript modules from",
+  "conw": "Note that despite the fact that you defined your translations in JSON files, in here you are importing them as javascript modules from",
   "configuration.paragraph.static-locales-3": ". This is because the compiler has transformed your translations into a module with inline functions at built time.",
   "configuration.paragraph.static-locales-4": "This approach is loading all those languages even if only one is being displayed. Usually okay when kicking out a new project or if you only have a few of keys, but when your app grows you should start loading languages on demand.",
   "configuration.subsection.dynamic-locales": "Load locales dynamically",
