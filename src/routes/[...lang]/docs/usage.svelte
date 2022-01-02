@@ -58,13 +58,21 @@
 <p>{$t('usage.paragraph.formatting-1')}</p>
 
 <Codeblock lang="html">{`<script>
-	import { date, number, time } from 'svelte-intl-precompile';
+	import { date, number, time, init } from 'svelte-intl-precompile';
+	// Adding a custom formatter for Euro as it's not among the defaults.
+	init({
+		formats: {
+			number: {
+				EUR: { style: 'currency', currency: 'EUR' },
+			}
+		}
+	}); 
 	// ...
 	$: {
 		jqueryPlugin.magic({
 			dateString: $date(d, { format: 'short' }),
 			timeString: $time(t, { format: 'full' }),
-			priceString: $number(n, { format: 'currency' })
+			priceString: $number(n, { format: 'EUR' })
 		})
 	}
 </script>

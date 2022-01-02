@@ -158,8 +158,6 @@ export async function preload() {
 
 <Codeblock lang="js">{`{
   number: {
-    currency: { style: 'currency' }
-    percent: { style: 'percent' }
     scientific: { notation: 'scientific' }
     engineering: { notation: 'engineering' }
     compactLong: { notation: 'compact', compactDisplay: 'long' }

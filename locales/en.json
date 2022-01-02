@@ -128,7 +128,7 @@
   "configuration.definitions.path": "Extracts the locale from the path of the URL.<br>E.g <pre class='inline'>getLocaleFromPathname(/^\/((es|en)(-\\w\\w)?)/)</pre> for <pre class='inline'>myapp.com/en-US/users</pre>",
   "configuration.definitions.host": "Extracts the locale from host.<br>E.g <pre class='inline'>getLocaleFromHostname(/^((es|en)(-\\w\\w)?)\\./)</pre> for <pre class='inline'>https://pt.myapp.com</pre>",
   "configuration.subsection.custom-formats": "Custom formats",
-  "configuration.paragraph.custom-formats-1": "This library can format numbers, dates and times. It does it without adding significant weight to your app by leverating the Intl API already present in all modern browsers and in Node.js.<br/>By default you app can use these formats, but you can add your own.",
+  "configuration.paragraph.custom-formats-1": "This library can format numbers, dates and times. It does it without adding significant weight to your app by leveraging the Intl API already present in all modern browsers and in Node.js.<br/>By default you app can use these formats, but you can add your own.",
   "configuration.paragraph.custom-formats-2": "If you want to define your own formats pass them on initialization using the",
   "configuration.paragraph.custom-formats-3": "option, which will be deep merged with the default formats listed above. The formats must be valid options to forward to",
   
