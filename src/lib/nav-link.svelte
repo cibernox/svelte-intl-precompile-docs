@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores"
 	export let href;
-  $: isActive = $page.path === href
+  $: isActive = $page.url.pathname === href
 </script>
 
 <li class="p-0 mb-2">

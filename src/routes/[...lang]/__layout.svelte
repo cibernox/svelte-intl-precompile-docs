@@ -6,8 +6,10 @@
   registerAll();
   let defaultLang = 'en';
   let localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`)
-  export async function load({ page: { path } }) {
-    const lang = (localeRegex.exec(path) || [null, defaultLang])[1];
+  // export async function load({ page: { path } }) {
+  export async function load({ url: { pathname } }) {
+    debugger;
+    const lang = (localeRegex.exec(pathname) || [null, defaultLang])[1];
     init({
       initialLocale: lang,
       fallbackLocale: defaultLang
@@ -30,12 +32,12 @@
   }
 
   function setLocale(code) {
-    if ($page.path === '/') {
+    if ($page.url.pathname === '/') {
       goto('/' + code, { noscroll: true });
     } else {
-      let newPath = $page.path.replace(localeRegex, '/' + code + '$2');
-      if (newPath === $page.path && !localeRegex.exec($page.path)) {
-        newPath = `/${code}${$page.path}`
+      let newPath = $page.url.pathname.replace(localeRegex, '/' + code + '$2');
+      if (newPath === $page.url.pathname && !localeRegex.exec($page.url.pathname)) {
+        newPath = `/${code}${$page.url.pathname}`
       }
       goto(newPath, { noscroll: true })
     }
