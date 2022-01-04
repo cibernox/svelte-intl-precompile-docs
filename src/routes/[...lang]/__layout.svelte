@@ -6,9 +6,7 @@
   registerAll();
   let defaultLang = 'en';
   let localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`)
-  // export async function load({ page: { path } }) {
   export async function load({ url: { pathname } }) {
-    debugger;
     const lang = (localeRegex.exec(pathname) || [null, defaultLang])[1];
     init({
       initialLocale: lang,
