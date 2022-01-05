@@ -9,8 +9,8 @@ export const handle: Handle = async ({ request, resolve }) => {
 	request.locals.locale = locale;
 
 	// TODO https://github.com/sveltejs/kit/issues/1046
-	if (request.url.searchParams.has('_method')) {
-		request.method = request.url.searchParams.get('_method').toUpperCase();
+	if (request.url?.searchParams.has('_method')) {
+		request.method = request.url?.searchParams.get('_method').toUpperCase();
 	}
 
 	const response = await resolve(request);
