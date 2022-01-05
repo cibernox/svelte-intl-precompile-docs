@@ -1,30 +1,36 @@
 <script context="module" lang="ts">
   import { registerAll, availableLocales } from '$locales';
-  import { t, waitLocale, init } from 'svelte-intl-precompile';
+  import { waitLocale, init, locale } from 'svelte-intl-precompile';
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   registerAll();
   let defaultLang = 'en';
-  let localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`)
+  let localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`);
+  let initialized = false;
+  function extractLanguageFromPath(path) {
+    return (localeRegex.exec(path) || [null, defaultLang])[1];
+  }
   export async function load({ url: { pathname } }) {
-    const lang = (localeRegex.exec(pathname) || [null, defaultLang])[1];
-    init({
-      initialLocale: lang,
-      fallbackLocale: defaultLang
-    });
-    await waitLocale()
-    return {
-      props: {
-        lang
-      }
-    };
+    if (!initialized) {      
+      const lang = extractLanguageFromPath(pathname);
+      init({
+        initialLocale: lang,
+        fallbackLocale: defaultLang
+      });
+      initialized = true;
+      await waitLocale()
+    }
+    return {};
   }
 </script>
 <script lang="ts">
-  export let lang: string
-  
   const flags = import.meta.globEager('../../lib/flags/*.svg')
-  
+  $: lang = extractLanguageFromPath($page.url.pathname);
+  $: {
+    if ($locale !== lang) {
+      $locale = lang;
+    }
+  }
   function flagFor(lang) {
     return flags[`../../lib/flags/${lang}.svg`].default
   }
