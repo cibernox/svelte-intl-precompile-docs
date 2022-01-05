@@ -146,6 +146,6 @@
   "usage.paragraph.other-stores-2": "Lets build a component to change the current locale.",
   "usage.paragraph.other-stores-3": "The code above is quite straigtforward. We just iterate the list of available locales in <code class='bg-code px-2'>$locales</code> rendering a button for each one. Clicking on a button will set the current locale in <code class='bg-code px-2'>$locale</code> to the new value.<br/> Every translation in the app will update without refreshing the page.",
   "usage.definitions.other-stores-1": "Can be used to read or write the current locale (E.g: <pre class='inline'>\"es-ES\"</pre>).",
-  "usage.definitions.other-stores-2": "Contain al array of all the available locales (E.g: <pre class='inline'>[\"es-ES\", \"en\", \"pt-BR\"]</pre>).",
+  "usage.definitions.other-stores-2": "Contains an array of all the available locales (E.g: <pre class='inline'>[\"es-ES\", \"en\", \"pt-BR\"]</pre>).",
   "usage.definitions.other-stores-3": "Contains <pre class='inline'>true</pre> when an asynchronous locale is still being loaded."
 }
