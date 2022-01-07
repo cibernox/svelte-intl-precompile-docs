@@ -21,6 +21,7 @@ export default defineConfig({
   resolve: {
     alias: {
       $lib: path.resolve('./src/lib'),
+      // $app: path.resolve('./node_modules/@sveltejs/kit/assets/runtime/app'),
     },
   },  
 })
