@@ -7,7 +7,10 @@ import svelteInlineCompile from './svelte-inline-compile.js';
 export default defineConfig({
   ...sveltekitViteConfig,
   plugins: [
-    svelte({ hot: !process.env.VITEST }),
+    svelte({ 
+      hot: !process.env.VITEST,
+      compilerOptions: { format: "cjs" }
+    }),
     svelteInlineCompile(),
   ],
   test: {

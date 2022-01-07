@@ -21,7 +21,7 @@ export default function myPlugin() {
     },
     transform(src, id) {
       if (fileRegex.test(id)) {
-        let result = transformSync(src, {
+        return transformSync(src, {
           plugins: [
             svelteInlineCompileBabelPlugin
           ],
@@ -29,8 +29,6 @@ export default function myPlugin() {
           sourceMaps: true,
           sourceFileName: id
         });
-        console.log(result.code);
-        return result;
       }
     },
   }
