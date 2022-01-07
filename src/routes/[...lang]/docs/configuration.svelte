@@ -4,9 +4,9 @@
 <script lang="ts">
 	import { t } from 'svelte-intl-precompile';
 	import scrollToHash from '$lib/scroll-to-hash';;
-	import CodeInline from '$lib/code-inline.svelte';
-	import Codeblock from '$lib/codeblock.svelte';
-	import DefinitionEntry from '$lib/definition-entry.svelte';
+	import CodeInline from '$lib/CodeInline.svelte';
+	import Codeblock from '$lib/Codeblock.svelte';
+	import DefinitionEntry from '$lib/DefinitionEntry.svelte';
 	scrollToHash();
 </script>
 
