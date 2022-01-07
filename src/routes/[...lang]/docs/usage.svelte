@@ -3,8 +3,8 @@
 </script>
 <script>
 	import { t } from 'svelte-intl-precompile';
-	import Codeblock from '$lib/codeblock.svelte';
-	import DefinitionEntry from '$lib/definition-entry.svelte';
+	import Codeblock from '$lib/Codeblock.svelte';
+	import DefinitionEntry from '$lib/DefinitionEntry.svelte';
 	import scrollToHash from '$lib/scroll-to-hash';;
 	scrollToHash();
 </script>
