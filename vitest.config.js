@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { sveltekitViteConfig } from './svelte.config.js'
 import path from 'path';
-import svelteInlineCompile from './svelte-inline-compile.js';
+import svelteInlineCompile from 'vite-plugin-svelte-inline-compile';
 
 export default defineConfig({
   ...sveltekitViteConfig,
@@ -16,6 +16,7 @@ export default defineConfig({
   test: {
     global: true,
     environment: 'jsdom',
+    setupFiles: ['./tests/setup.js'],
   },
   resolve: {
     alias: {
