@@ -1,6 +1,6 @@
 <script>
   import { t, locale } from 'svelte-intl-precompile';
-  import NavLink from '$lib/nav-link.svelte';
+  import NavLink from '$lib/NavLink.svelte';
 </script>
 
 <nav class="fixed w-76 h-screen shadow-xl bg-gray-500">
