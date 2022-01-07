@@ -8,12 +8,7 @@ export const sveltekitViteConfig = {
   ],
   ssr: {
     external: ['@babel/core', 'babel-plugin-precompile-intl']
-  },  
-  // resolve: {
-  //   alias: {
-  //     $lib: path.resolve('./src/lib'),
-  //   },
-  // },
+  },
 }
 
 /** @type {import('@sveltejs/kit').Config} */
