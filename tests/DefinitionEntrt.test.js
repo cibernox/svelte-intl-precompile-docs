@@ -1,6 +1,5 @@
 import { cleanup, render } from '@testing-library/svelte'
 import DefinitionEntry from '$lib/DefinitionEntry.svelte';
-import DefinitionEntry from '../src/lib/DefinitionEntry.svelte';
 
 describe('DefinitionEntry.svelte', () => {
   // TODO: @testing-library/svelte claims to add this automatically but it doesn't work without explicit afterEach

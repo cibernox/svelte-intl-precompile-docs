@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { sveltekitViteConfig } from './svelte.config.js'
+import path from 'path';
 
 export default defineConfig({
   ...sveltekitViteConfig,
@@ -11,4 +12,9 @@ export default defineConfig({
     global: true,
     environment: 'jsdom',
   },
+  resolve: {
+    alias: {
+      $lib: path.resolve('./src/lib'),
+    },
+  },  
 })
