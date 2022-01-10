@@ -95005,8 +95005,8 @@ var Configuration = create_ssr_component(($$result, $$props, $$bindings, slots) 
 ${validate_component(Codeblock, "Codeblock").$$render($$result, { lang: "html" }, {}, {
     default: () => `${escape(`<script context="module">
 	import { addMessages, init } from 'svelte-intl-precompile';
-	import en from '$locales/en.js';
-	import es from '$locales/es.js';
+	import en from '$locales/en';
+	import es from '$locales/es';
 	addMessages('en', en);
 	addMessages('es', es);
 	init({

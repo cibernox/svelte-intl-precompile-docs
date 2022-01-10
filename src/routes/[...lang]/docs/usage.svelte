@@ -3,8 +3,8 @@
 </script>
 <script>
 	import { t } from 'svelte-intl-precompile';
-	import Codeblock from '$lib/codeblock.svelte';
-	import DefinitionEntry from '$lib/definition-entry.svelte';
+	import Codeblock from '$lib/Codeblock.svelte';
+	import DefinitionEntry from '$lib/DefinitionEntry.svelte';
 	import scrollToHash from '$lib/scroll-to-hash';;
 	scrollToHash();
 </script>
@@ -58,13 +58,21 @@
 <p>{$t('usage.paragraph.formatting-1')}</p>
 
 <Codeblock lang="html">{`<script>
-	import { date, number, time } from 'svelte-intl-precompile';
+	import { date, number, time, init } from 'svelte-intl-precompile';
+	// Adding a custom formatter for Euro as it's not among the defaults.
+	init({
+		formats: {
+			number: {
+				EUR: { style: 'currency', currency: 'EUR' },
+			}
+		}
+	}); 
 	// ...
 	$: {
 		jqueryPlugin.magic({
 			dateString: $date(d, { format: 'short' }),
 			timeString: $time(t, { format: 'full' }),
-			priceString: $number(n, { format: 'currency' })
+			priceString: $number(n, { format: 'EUR' })
 		})
 	}
 </script>

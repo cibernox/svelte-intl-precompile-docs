@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { t } from "precompile-intl-runtime";
 	let translations = `{
 	"header": "Svelte Intl Precompile is {adjective}",
 	"posted-on": "Posted on {postDate, date, long}",
