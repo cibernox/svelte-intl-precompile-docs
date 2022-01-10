@@ -4,9 +4,9 @@
 <script lang="ts">
 	import { t } from 'svelte-intl-precompile';
 	import scrollToHash from '$lib/scroll-to-hash';;
-	import CodeInline from '$lib/code-inline.svelte';
-	import Codeblock from '$lib/codeblock.svelte';
-	import DefinitionEntry from '$lib/definition-entry.svelte';
+	import CodeInline from '$lib/CodeInline.svelte';
+	import Codeblock from '$lib/Codeblock.svelte';
+	import DefinitionEntry from '$lib/DefinitionEntry.svelte';
 	scrollToHash();
 </script>
 
@@ -23,8 +23,8 @@
 <Codeblock lang="html">
 {`<script context="module">
 	import { addMessages, init } from 'svelte-intl-precompile';
-	import en from '$locales/en.js';
-	import es from '$locales/es.js';
+	import en from '$locales/en';
+	import es from '$locales/es';
 	addMessages('en', en);
 	addMessages('es', es);
 	init({
@@ -42,8 +42,8 @@
 <p>{$t('configuration.paragraph.static-locales-1')} <CodeInline>addMessages(langCode, translations)</CodeInline>.</p>
 
 <Codeblock lang="js">
-import en from '$locales/en.js';
-import es from '$locales/es.js';	
+import en from '$locales/en';
+import es from '$locales/es';	
 addMessages('en', en);
 addMessages('es', es);	
 </Codeblock>
@@ -67,8 +67,8 @@ addMessages('es', es);
 
 <Codeblock lang="js">{`
 import { init, register, waitLocale } from 'svelte-intl-precompile';
-register('en', () => import('$locales/en.js'));
-register('es', () => import('$locales/es.js'));
+register('en', () => import('$locales/en'));
+register('es', () => import('$locales/es'));
 init({ initialLocale: en });
 
 export async function preload() {
@@ -152,8 +152,6 @@ export async function preload() {
 
 <Codeblock lang="js">{`{
   number: {
-    currency: { style: 'currency' }
-    percent: { style: 'percent' }
     scientific: { notation: 'scientific' }
     engineering: { notation: 'engineering' }
     compactLong: { notation: 'compact', compactDisplay: 'long' }

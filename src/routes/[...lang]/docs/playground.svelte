@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import { t } from "precompile-intl-runtime";
-	import Playground from "$lib/playground.svelte";
+	import Playground from "$lib/Playground.svelte";
 </script>
 
 <svelte:head>

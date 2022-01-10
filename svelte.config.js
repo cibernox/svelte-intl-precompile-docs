@@ -1,6 +1,15 @@
 import preprocess from 'svelte-preprocess';
 import netlify from '@sveltejs/adapter-netlify';
-import precompileIntl from "svelte-intl-precompile/sveltekit-plugin.js";
+import precompileIntl from "svelte-intl-precompile/sveltekit-plugin";
+
+export const sveltekitViteConfig = {
+  plugins: [
+    precompileIntl('locales') // if your translations are defined in /locales/[lang].json
+  ],
+  ssr: {
+    external: ['@babel/core', 'babel-plugin-precompile-intl']
+  },
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -16,14 +25,7 @@ const config = {
     adapter: netlify(),
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
-		vite: {
-			plugins: [
-				precompileIntl('locales') // if your translations are defined in /locales/[lang].json
-			],
-      ssr: {
-        external: ['@babel/core', 'babel-plugin-precompile-intl']
-      }
-		}
+		vite: sveltekitViteConfig
   },
 };
 
