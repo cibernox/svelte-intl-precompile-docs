@@ -76,7 +76,7 @@
   "getting-started.subsection.installation": "Installation",
   "getting-started.paragraph.installation-1": "Install svelte-intl-precompile as a runtime dependency of your sveltkit app.",
   "getting-started.subsection.create-translations": "Create your translations",
-  "getting-started.paragraph.create-translations-1": "Next create a folder to put your translations files in. I like to use",
+  "getting-started.paragraph.create-translations-1": "Next create a folder to put your translations files in. I like to use {dir1} {or} {dir2}",
   "getting-started.paragraph.create-translations-2": "at the root of the project, but really any folder will do.",
   "getting-started.paragraph.create-translations-3": "I recommend using JSON files but you can use use javascript with an object as their default export. Whatever the file extension, you translations inside are just regular strings in the ICU message syntax:",
   "getting-started.paragraph.create-translations-4": "I prefer when the dictionary has a single level and using dots to create hierarchies like in the one above, but you can also nest objects like in the next example:",
@@ -87,10 +87,10 @@
   "getting-started.paragraph.create-translations-9": "I want even more features",
   "getting-started.paragraph.create-translations-10": "You can also define your translation in .js files, .ts files and .mjs files. Your module must export the object with the translations as its default export.",
   "getting-started.subsection.hook-into-sveltekit": "Hook the compiler into SvelteKit",
-  "getting-started.paragraph.hook-into-sveltekit-1": "This library's build time compiler needs to hook into the build pipeline of your app. For that, add it to the list of vite plugins in your",
+  "getting-started.paragraph.hook-into-sveltekit-1": "This library's build time compiler needs to hook into the build pipeline of your app. For that, add it to the list of vite plugins in your <code class=\"bg-code px-2\">{path}</code>",
   "getting-started.paragraph.hook-into-sveltekit-2": "You are set, time to use the library.",
   "getting-started.subsection.hook-into-vite": "Hook the compiler into plain Vite.js",
-  "getting-started.paragraph.hook-into-vite-1": "If you are not using SvelteKit but raw Vite.js, the configuration is very similar. At the end SvelteKit uses Vite.js underneath. Import the compiler and pass it to the list of plugins in",
+  "getting-started.paragraph.hook-into-vite-1": "If you are not using SvelteKit but raw Vite.js, the configuration is very similar. At the end SvelteKit uses Vite.js underneath. Import the compiler and pass it to the list of plugins in <code class=\"bg-code px-2\">{path}</code>",
 
   "configuration.title": "Configuration",
   "configuration.subsection.example": "Configuration example",
@@ -152,6 +152,6 @@
   "usage.paragraph.other-stores-2": "Lets build a component to change the current locale.",
   "usage.paragraph.other-stores-3": "The code above is quite straigtforward. We just iterate the list of available locales in <code class='bg-code px-2'>$locales</code> rendering a button for each one. Clicking on a button will set the current locale in <code class='bg-code px-2'>$locale</code> to the new value.<br/> Every translation in the app will update without refreshing the page.",
   "usage.definitions.other-stores-1": "Can be used to read or write the current locale (E.g: <pre class='inline'>\"es-ES\"</pre>).",
-  "usage.definitions.other-stores-2": "Contain al array of all the available locales (E.g: <pre class='inline'>[\"es-ES\", \"en\", \"pt-BR\"]</pre>).",
+  "usage.definitions.other-stores-2": "Contains an array of all the available locales (E.g: <pre class='inline'>[\"es-ES\", \"en\", \"pt-BR\"]</pre>).",
   "usage.definitions.other-stores-3": "Contains <pre class='inline'>true</pre> when an asynchronous locale is still being loaded."
 }

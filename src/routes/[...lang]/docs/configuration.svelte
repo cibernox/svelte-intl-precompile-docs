@@ -65,12 +65,6 @@ addMessages('es', es);
   {$t('configuration.paragraph.dynamic-locales-5')}
 </p>
 
-<p>
-	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>preload</CodeInline> 
-  {$t('configuration.paragraph.dynamic-locales-5')}
-</p>
-
-
 <Codeblock lang="js">{`
 import { init, register, waitLocale } from 'svelte-intl-precompile';
 register('en', () => import('$locales/en'));
@@ -179,7 +173,7 @@ export async function preload() {
 
 <p>
   {$t('configuration.paragraph.custom-formats-2')} <CodeInline>formats</CodeInline>
-  {$t('configuration.paragraph.custom-formats-3')}
+  {@html $t('configuration.paragraph.custom-formats-3')}
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat" class="text-primary underline">Intl.DateTimeFormat</a>.
 </p>
 
