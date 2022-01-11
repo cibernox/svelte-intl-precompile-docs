@@ -13,7 +13,7 @@
 	let holidaysStart = new Date();
 	let appointment = new Date();
 	let number = 0;
-	let interpolationKey = "Your have {numCats, plural, one {one cat} other {# cats}}";
+	let interpolationKey = "Your favorite color is {chosen}";
 	let simplePlural = "Your have {numCats, plural, one {one cat} other {# cats}}";
 	let complexPlural = "Your have {numCats, plural, \n  =0 {no cats at all} \n  =1 {one single cat} \n  =2 {a couple cats} \n  =3 {a trio of cats} \n  =12 {a dozen cats} \n  other {exactly # cats}}";
 	let offsetPlural = "Mary {guestCount, plural, offset:1 \n  =0 {does not give a party.} \n  =1 {invites {guest} to her party.} \n  =2 {invites {guest} and one other person to her party.} \n  other {invites {guest} and # other people to her party.}}";
@@ -68,7 +68,7 @@
 				<input 
 					class="shadow border rounded py-2 px-3 text-gray-700 focus:outline-none" 
 					type="text" 
-					bind:value={childGender} 
+					bind:value={interpolation} 
 					placeholder="chosen">
 			</td>
       <td>{$t('icu-crash-course.table-cells.interpolations', { values: { chosen: interpolation } })}</td>
