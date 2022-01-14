@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { sveltekitViteConfig } from './svelte.config.js'
 import path from 'path';
-import svelteInlineComponents from 'vite-plugin-svelte-inline-components';
+import svelteInlineComponents from 'vite-plugin-test-plugin-do-not-use';
 
 export default defineConfig({
   ...sveltekitViteConfig,
