@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { sveltekitViteConfig } from './svelte.config.js'
 import path from 'path';
-import svelteInlineComponents from 'vite-plugin-svelte-inline-components';
+// import svelteInlineComponents from 'vite-plugin-svelte-inline-components';
 
 export default defineConfig({
   ...sveltekitViteConfig,
@@ -10,7 +10,7 @@ export default defineConfig({
     svelte({ 
       hot: !process.env.VITEST,
     }),
-    svelteInlineComponents(),
+    // svelteInlineComponents(),
   ],
   test: {
     global: true,
