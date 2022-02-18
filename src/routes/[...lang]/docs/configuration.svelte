@@ -69,9 +69,9 @@ addMessages('es', es);
 import { init, register, waitLocale } from 'svelte-intl-precompile';
 register('en', () => import('$locales/en'));
 register('es', () => import('$locales/es'));
-init({ initialLocale: en });
 
 export async function load() {
+  init({ initialLocale: en });
   await waitLocale(); // awaits the default locale, "en" in this case.
   return {};
 }
@@ -94,9 +94,9 @@ export async function load() {
   import { registerAll, availableLocales } from '$locales';
   
   registerAll();
-  init({ initialLocale: selectBestMatchingLocale(availableLocales) });
   
   export async function load() {
+    init({ initialLocale: selectBestMatchingLocale(availableLocales) });
     await waitLocale();
     return {};
   }
