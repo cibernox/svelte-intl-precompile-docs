@@ -61,7 +61,7 @@ addMessages('es', es);
 </p>
 
 <p>
-	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>preload</CodeInline> 
+	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>load</CodeInline> 
   {$t('configuration.paragraph.dynamic-locales-5')}
 </p>
 
@@ -71,8 +71,9 @@ register('en', () => import('$locales/en'));
 register('es', () => import('$locales/es'));
 init({ initialLocale: en });
 
-export async function preload() {
-  return waitLocale(); // awaits the default locale, "en" in this case.
+export async function load() {
+  await waitLocale(); // awaits the default locale, "en" in this case.
+  return {};
 }
 `}</Codeblock>
 
@@ -95,8 +96,9 @@ export async function preload() {
   registerAll();
   init({ initialLocale: selectBestMatchingLocale(availableLocales) });
   
-  export async function preload() {
-    return waitLocale();
+  export async function load() {
+    await waitLocale();
+	return {};
   }
   `}</Codeblock>
 
