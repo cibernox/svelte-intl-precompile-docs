@@ -61,7 +61,7 @@ addMessages('es', es);
 </p>
 
 <p>
-	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>preload</CodeInline> 
+	{$t('configuration.paragraph.dynamic-locales-4')} <CodeInline>load</CodeInline> 
   {$t('configuration.paragraph.dynamic-locales-5')}
 </p>
 
@@ -69,10 +69,11 @@ addMessages('es', es);
 import { init, register, waitLocale } from 'svelte-intl-precompile';
 register('en', () => import('$locales/en'));
 register('es', () => import('$locales/es'));
-init({ initialLocale: en });
 
-export async function preload() {
-  return waitLocale(); // awaits the default locale, "en" in this case.
+export async function load() {
+  init({ initialLocale: en });
+  await waitLocale(); // awaits the default locale, "en" in this case.
+  return {};
 }
 `}</Codeblock>
 
@@ -93,10 +94,11 @@ export async function preload() {
   import { registerAll, availableLocales } from '$locales';
   
   registerAll();
-  init({ initialLocale: selectBestMatchingLocale(availableLocales) });
   
-  export async function preload() {
-    return waitLocale();
+  export async function load() {
+    init({ initialLocale: selectBestMatchingLocale(availableLocales) });
+    await waitLocale();
+    return {};
   }
   `}</Codeblock>
 
