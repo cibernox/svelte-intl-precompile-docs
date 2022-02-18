@@ -98,7 +98,7 @@ export async function load() {
   
   export async function load() {
     await waitLocale();
-	return {};
+    return {};
   }
   `}</Codeblock>
 
