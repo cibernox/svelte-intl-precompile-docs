@@ -66,15 +66,17 @@ addMessages('es', es);
 </p>
 
 <Codeblock lang="js">{`
-import { init, register, waitLocale } from 'svelte-intl-precompile';
-register('en', () => import('$locales/en'));
-register('es', () => import('$locales/es'));
+<script context="module">
+  import { init, register, waitLocale } from 'svelte-intl-precompile';
+  register('en', () => import('$locales/en'));
+  register('es', () => import('$locales/es'));
 
-export async function load() {
-  init({ initialLocale: en });
-  await waitLocale(); // awaits the default locale, "en" in this case.
-  return {};
-}
+  export async function load() {
+    init({ initialLocale: en });
+    await waitLocale(); // awaits the default locale, "en" in this case.
+    return {};
+  }
+</script>
 `}</Codeblock>
 
 <h2 class="text-2xl font-semibold" id="dynamic-locales">{$t('configuration.subsection.dynamic-locales-shorthand')}</h2>
@@ -90,6 +92,7 @@ export async function load() {
 </p>
 
 <Codeblock lang="js">{`
+<script context="module">
   import { init, waitLocale } from 'svelte-intl-precompile';
   import { registerAll, availableLocales } from '$locales';
   
@@ -100,6 +103,7 @@ export async function load() {
     await waitLocale();
     return {};
   }
+</script>  
   `}</Codeblock>
 
 <h2 class="text-2xl font-semibold" id="init">{$t('configuration.subsection.init')}</h2>
