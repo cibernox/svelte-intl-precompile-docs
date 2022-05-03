@@ -107,7 +107,7 @@
   "configuration.paragraph.dynamic-locales-1": "Once you have a significant amount of translations and many locales it would be very wasteful to load every possible language for every possible user when they will only see their selected one. The library has a",
   "configuration.paragraph.dynamic-locales-2": "function to dynamically import languages when the user selects it and a",
   "configuration.paragraph.dynamic-locales-3": "to wait for locales to be loaded.",
-  "configuration.paragraph.dynamic-locales-4": "If all your locales are dynamically loaded you want to stop the page from rendering initial locale has loaded. Calling it in Svete's",
+  "configuration.paragraph.dynamic-locales-4": "If all your locales are dynamically loaded you want to stop the page from rendering initial locale has loaded. Calling it in Svelte's",
   "configuration.paragraph.dynamic-locales-5": "function with do exactly that.",
   "configuration.subsection.dynamic-locales-shorthand": "Load locales dynamically (but shorter this time)",
   "configuration.paragraph.dynamic-locales-shorthand-1": "If you just want to register all your available locales (all the locales for which you have a JSON file with translations) automatically, there's a nice shorthand for that. The",
