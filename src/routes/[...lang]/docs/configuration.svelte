@@ -148,6 +148,10 @@ addMessages('es', es);
     <svelte:fragment slot="dt"><pre>getLocaleFromHostname(regex)</svelte:fragment>
     <svelte:fragment slot="dd">{@html $t('configuration.definitions.host')}</svelte:fragment>
   </DefinitionEntry>
+  <DefinitionEntry background="gray">
+    <svelte:fragment slot="dt"><pre>getLocaleFromAcceptLanguageHeader(header, availableLocales?)</pre></svelte:fragment>
+    <svelte:fragment slot="dd">{@html $t('configuration.definitions.acceptLanguage')}</svelte:fragment>
+  </DefinitionEntry>
 </dl>
 
 <h2 class="text-xl font-semibold" id="custom-formats">{$t('configuration.subsection.custom-formats')}</h2>
