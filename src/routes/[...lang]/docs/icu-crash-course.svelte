@@ -13,6 +13,10 @@
 	let holidaysStart = new Date();
 	let appointment = new Date();
 	let number = 0;
+	let skeletonBalance = 0;
+	let skeletonPercentageVal = 0;
+	let skeletonMeasurementMeterVal = 0;
+	let skeletonCompactVal = 5000;
 	let interpolationKey = "Your favorite color is {chosen}";
 	let simplePlural = "Your have {numCats, plural, one {one cat} other {# cats}}";
 	let complexPlural = "Your have {numCats, plural, \n  =0 {no cats at all} \n  =1 {one single cat} \n  =2 {a couple cats} \n  =3 {a trio of cats} \n  =12 {a dozen cats} \n  other {exactly # cats}}";
@@ -21,6 +25,14 @@
 	let dateString = "Your next holidays start on {holidayStart, date, full}";
 	let timeString = "Your doctor's appointment is today at {appointment, time, short}";
 	let numberString = "Your account balance is {num, number}";
+	let skeletonCurrency = "Your account balance is {num, number, ::currency/EUR}";
+	let skeletonCurrencySigned = "Your account balance is {num, number, ::currency/EUR sign-always}";
+	let skeletonPercentage = "Game progress {num, number, ::percent}";
+	let skeletonPercentageTwoDecimals = "Game progress {num, number, ::percent .00}";
+	let skeletonMeasurementMeter = "Your destination is {num, number, ::unit/meter} away";
+	let skeletonMeasurementMeterLong = "Your destination is {num, number, ::unit/meter unit-width-full-name} away";
+	let skeletonCompactShort = "Are you sure you want to bid {num, number, ::K} over asking?";
+	let skeletonCompactLong = "Are you sure you want to bid {num, number, ::KK} over asking?";
 
 	function onDateChange(e) {
 		holidaysStart = new Date(e.srcElement.value)
@@ -271,3 +283,91 @@
     </tr>
 	</tbody>
 </table>
+
+<p>There's also an advanced feature called number skeletons that allow you to customize to great lengths how you want your numbers formatted</p>
+
+<table class="table-auto w-full text-left">
+  <thead>
+    <tr>
+      <th>{$t('icu-crash-course.table-heads.definition')}</th>
+      <th>{$t('icu-crash-course.table-heads.values')}</th>
+      <th>{$t('icu-crash-course.table-heads.output')}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-gray-50">
+      <td>
+				<pre><code>{skeletonCurrency}</code></pre>
+			</td>
+      <td>
+				<input type="number" bind:value={skeletonBalance}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonCurrency', { values: { num: skeletonBalance } })}</td>
+    </tr>
+    <tr>
+      <td>
+				<pre><code>{skeletonCurrencySigned}</code></pre>
+			</td>
+      <td>
+				<input type="number" bind:value={skeletonBalance}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonCurrencySigned', { values: { num: skeletonBalance } })}</td>
+    </tr>
+    <tr class="bg-gray-50">
+			<td>
+				<pre><code>{skeletonPercentage}</code></pre>
+			</td>
+      <td>
+				<input type="number" step="0.1" bind:value={skeletonPercentageVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonPercentage', { values: { num: skeletonPercentageVal } })}</td>
+    </tr>
+    <tr>
+			<td>
+				<pre><code>{skeletonPercentageTwoDecimals}</code></pre>
+			</td>
+      <td>
+				<input type="number" step="0.1" bind:value={skeletonPercentageVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonPercentageTwoDecimals', { values: { num: skeletonPercentageVal } })}</td>
+    </tr>
+		<tr class="bg-gray-50">
+      <td>
+				<pre><code>{skeletonMeasurementMeter}</code></pre>
+			</td>
+      <td>
+				<input type="number" bind:value={skeletonMeasurementMeterVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonMeasurementMeter', { values: { num: skeletonMeasurementMeterVal } })}</td>
+    </tr>		
+		<tr>
+      <td>
+				<pre><code>{skeletonMeasurementMeterLong}</code></pre>
+			</td>
+      <td>
+				<input type="number" bind:value={skeletonMeasurementMeterVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonMeasurementMeterLong', { values: { num: skeletonMeasurementMeterVal } })}</td>
+    </tr>
+		<tr class="bg-gray-50">
+      <td>
+				<pre><code>{skeletonCompactShort}</code></pre>
+			</td>
+      <td>
+				<input type="number" step="100" bind:value={skeletonCompactVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonCompactShort', { values: { num: skeletonCompactVal } })}</td>
+    </tr>				
+		<tr>
+      <td>
+				<pre><code>{skeletonCompactLong}</code></pre>
+			</td>
+      <td>
+				<input type="number" step="100" bind:value={skeletonCompactVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonCompactLong', { values: { num: skeletonCompactVal } })}</td>
+    </tr>				
+	</tbody>
+</table>
+
+<p>The possibilities of number skeletons are limitless.</p>

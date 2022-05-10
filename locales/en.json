@@ -70,7 +70,14 @@
   "icu-crash-course.subsection.number": "Numbers",
   "icu-crash-course.paragraph.number": "Formats a number according to the rules of the current locale.",
   "icu-crash-course.table-cells.number": "Your account balance is {num, number}",
-
+  "icu-crash-course.table-cells.skeletonCurrency": "Your account balance is {num, number, ::currency/EUR}",
+  "icu-crash-course.table-cells.skeletonCurrencySigned": "Your account balance is {num, number, ::currency/EUR sign-always}",
+  "icu-crash-course.table-cells.skeletonPercentage": "Game progress {num, number, ::percent}",
+  "icu-crash-course.table-cells.skeletonPercentageTwoDecimals": "Game progress {num, number, ::percent .00}",
+  "icu-crash-course.table-cells.skeletonMeasurementMeter": "Your destination is {num, number, ::unit/meter} away",
+  "icu-crash-course.table-cells.skeletonMeasurementMeterLong": "Your destination is {num, number, ::unit/meter unit-width-full-name} away",
+  "icu-crash-course.table-cells.skeletonCompactShort": "Are you sure you want to bid {num, number, ::K} over asking?",
+  "icu-crash-course.table-cells.skeletonCompactLong": "Are you sure you want to bid {num, number, ::KK} over asking?",
 
   "getting-started.title": "Getting started",
   "getting-started.subsection.installation": "Installation",
