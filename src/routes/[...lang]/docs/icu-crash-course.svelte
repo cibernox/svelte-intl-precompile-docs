@@ -29,6 +29,7 @@
 	let skeletonCurrency = "Your account balance is {num, number, ::currency/EUR}";
 	let skeletonCurrencySigned = "Your account balance is {num, number, ::currency/EUR sign-always}";
 	let skeletonPercentage = "Game progress {num, number, ::percent}";
+	let skeletonPercentageScaled = "Game progress {num, number, ::percent .00 scale/100}";
 	let skeletonPercentageTwoDecimals = "Game progress {num, number, ::percent .00}";
 	let skeletonMeasurementMeter = "Your destination is {num, number, ::unit/meter} away";
 	let skeletonMeasurementMeterLong = "Your destination is {num, number, ::unit/meter unit-width-full-name} away";
@@ -323,7 +324,7 @@
 				<input type="number" step="0.1" bind:value={skeletonPercentageVal}>
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonPercentage', { values: { num: skeletonPercentageVal } })}</td>
-    </tr>
+    </tr>	
     <tr>
 			<td>
 				<pre><code>{skeletonPercentageTwoDecimals}</code></pre>
@@ -333,7 +334,16 @@
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonPercentageTwoDecimals', { values: { num: skeletonPercentageVal } })}</td>
     </tr>
-		<tr class="bg-gray-50">
+    <tr class="bg-gray-50">
+			<td>
+				<pre><code>{skeletonPercentageScaled}</code></pre>
+			</td>
+      <td>
+				<input type="number" step="0.1" bind:value={skeletonPercentageVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonPercentageScaled', { values: { num: skeletonPercentageVal } })}</td>
+    </tr>			
+		<tr>
       <td>
 				<pre><code>{skeletonMeasurementMeter}</code></pre>
 			</td>
@@ -342,7 +352,7 @@
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonMeasurementMeter', { values: { num: skeletonMeasurementMeterVal } })}</td>
     </tr>		
-		<tr>
+		<tr class="bg-gray-50">
       <td>
 				<pre><code>{skeletonMeasurementMeterLong}</code></pre>
 			</td>
@@ -351,7 +361,7 @@
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonMeasurementMeterLong', { values: { num: skeletonMeasurementMeterVal } })}</td>
     </tr>
-		<tr class="bg-gray-50">
+		<tr>
       <td>
 				<pre><code>{skeletonCompactShort}</code></pre>
 			</td>
@@ -360,7 +370,7 @@
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonCompactShort', { values: { num: skeletonCompactVal } })}</td>
     </tr>				
-		<tr>
+		<tr class="bg-gray-50">
       <td>
 				<pre><code>{skeletonCompactLong}</code></pre>
 			</td>
@@ -369,7 +379,7 @@
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonCompactLong', { values: { num: skeletonCompactVal } })}</td>
     </tr>
-		<tr class="bg-gray-50">
+		<tr>
       <td>
 				<pre><code>{skeletonScientific}</code></pre>
 			</td>
@@ -381,5 +391,4 @@
 	</tbody>
 </table>
 
-<p>The possibilities of number skeletons are limitless.</p>
 <p>{$t('icu-crash-course.paragraph.number-3')}</p>

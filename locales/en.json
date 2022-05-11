@@ -76,6 +76,7 @@
   "icu-crash-course.table-cells.skeletonCurrencySigned": "Your account balance is {num, number, ::currency/EUR sign-always}",
   "icu-crash-course.table-cells.skeletonPercentage": "Game progress {num, number, ::percent}",
   "icu-crash-course.table-cells.skeletonPercentageTwoDecimals": "Game progress {num, number, ::percent .00}",
+  "icu-crash-course.table-cells.skeletonPercentageScaled": "Game progress {num, number, ::percent .00 scale/100}",
   "icu-crash-course.table-cells.skeletonMeasurementMeter": "Your destination is {num, number, ::unit/meter} away",
   "icu-crash-course.table-cells.skeletonMeasurementMeterLong": "Your destination is {num, number, ::unit/meter unit-width-full-name} away",
   "icu-crash-course.table-cells.skeletonCompactShort": "Are you sure you want to bid {num, number, ::K} over asking?",
