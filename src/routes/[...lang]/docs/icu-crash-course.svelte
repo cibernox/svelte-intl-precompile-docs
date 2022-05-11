@@ -17,6 +17,7 @@
 	let skeletonPercentageVal = 0;
 	let skeletonMeasurementMeterVal = 0;
 	let skeletonCompactVal = 5000;
+	let skeletonScientificVal = 123456789;
 	let interpolationKey = "Your favorite color is {chosen}";
 	let simplePlural = "Your have {numCats, plural, one {one cat} other {# cats}}";
 	let complexPlural = "Your have {numCats, plural, \n  =0 {no cats at all} \n  =1 {one single cat} \n  =2 {a couple cats} \n  =3 {a trio of cats} \n  =12 {a dozen cats} \n  other {exactly # cats}}";
@@ -33,6 +34,7 @@
 	let skeletonMeasurementMeterLong = "Your destination is {num, number, ::unit/meter unit-width-full-name} away";
 	let skeletonCompactShort = "Are you sure you want to bid {num, number, ::K} over asking?";
 	let skeletonCompactLong = "Are you sure you want to bid {num, number, ::KK} over asking?";
+	let skeletonScientific = "The chances of winning the lottery are 1 in {num, number, ::scientific/*ee}?";
 
 	function onDateChange(e) {
 		holidaysStart = new Date(e.srcElement.value)
@@ -366,7 +368,16 @@
 				<input type="number" step="100" bind:value={skeletonCompactVal}>
 			</td>
       <td>{$t('icu-crash-course.table-cells.skeletonCompactLong', { values: { num: skeletonCompactVal } })}</td>
-    </tr>				
+    </tr>
+		<tr class="bg-gray-50">
+      <td>
+				<pre><code>{skeletonScientific}</code></pre>
+			</td>
+      <td>
+				<input type="number" step="100" bind:value={skeletonScientificVal}>
+			</td>
+      <td>{$t('icu-crash-course.table-cells.skeletonScientific', { values: { num: skeletonScientificVal } })}</td>
+    </tr>						
 	</tbody>
 </table>
 

@@ -78,6 +78,8 @@
   "icu-crash-course.table-cells.skeletonMeasurementMeterLong": "Your destination is {num, number, ::unit/meter unit-width-full-name} away",
   "icu-crash-course.table-cells.skeletonCompactShort": "Are you sure you want to bid {num, number, ::K} over asking?",
   "icu-crash-course.table-cells.skeletonCompactLong": "Are you sure you want to bid {num, number, ::KK} over asking?",
+  "icu-crash-course.table-cells.skeletonScientific": 	"The chances of winning the lottery are 1 in {num, number, ::scientific/*ee}?",
+
 
   "getting-started.title": "Getting started",
   "getting-started.subsection.installation": "Installation",
