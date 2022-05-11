@@ -2,7 +2,7 @@
 	export const prerender = true;
 </script>
 <script lang="ts">
-	import { t } from 'svelte-intl-precompile';
+	import { t, locale } from 'svelte-intl-precompile';
 	import scrollToHash from '$lib/scroll-to-hash';;
 	import CodeInline from '$lib/CodeInline.svelte';
 	import Codeblock from '$lib/Codeblock.svelte';
@@ -195,3 +195,5 @@ addMessages('es', es);
     }
   }
 });`}</Codeblock>
+
+<p>{$t('configuration.paragraph.custom-formats-4')} <a href="/{$locale}/docs/icu-crash-course#crash-course-number-skeletons" class="text-primary underline">{$t('configuration.paragraph.custom-formats-5')}</a></p>

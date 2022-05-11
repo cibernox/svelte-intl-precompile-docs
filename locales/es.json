@@ -69,6 +69,8 @@
   "icu-crash-course.table-cells.time": "Your doctor's appointment is today at {appointment, time, short}",
   "icu-crash-course.subsection.number": "Números",
   "icu-crash-course.paragraph.number": "Formatea un número de acuerdo a las reglas del idioma seleccionado.",
+  "icu-crash-course.paragraph.number-2": "También hay una funcionalidad avanzada llamada <strong id='crash-course-number-skeletons' class='font-semibold text-primary'>Number Skeletons</strong> que te permite personalizar hasta el extremo cómo quieres que los números se formateen.",
+  "icu-crash-course.paragraph.number-3": "Las posibilidades de los number skeleton son ilimitadas.",
   "icu-crash-course.table-cells.number": "Your account balance is {num, number}",
   "icu-crash-course.table-cells.skeletonCurrency": "Your account balance is {num, number, ::currency/EUR}",
   "icu-crash-course.table-cells.skeletonCurrencySigned": "Your account balance is {num, number, ::currency/EUR sign-always}",

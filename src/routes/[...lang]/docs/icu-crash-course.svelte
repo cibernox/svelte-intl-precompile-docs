@@ -261,7 +261,7 @@
 	</tbody>
 </table>
 
-<h2 class="text-2xl font-semibold">{$t('icu-crash-course.subsection.number')}</h2>
+<h2 class="text-2xl font-semibold" id="crash-course-numbers">{$t('icu-crash-course.subsection.number')}</h2>
 
 <p>{$t('icu-crash-course.paragraph.number')}</p>
 
@@ -286,7 +286,7 @@
 	</tbody>
 </table>
 
-<p>There's also an advanced feature called number skeletons that allow you to customize to great lengths how you want your numbers formatted</p>
+<p>{@html $t('icu-crash-course.paragraph.number-2')}</p>
 
 <table class="table-auto w-full text-left">
   <thead>
@@ -382,3 +382,4 @@
 </table>
 
 <p>The possibilities of number skeletons are limitless.</p>
+<p>{$t('icu-crash-course.paragraph.number-3')}</p>
