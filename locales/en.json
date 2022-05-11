@@ -69,7 +69,18 @@
   "icu-crash-course.table-cells.time": "Your doctor's appointment is today at {appointment, time, short}",
   "icu-crash-course.subsection.number": "Numbers",
   "icu-crash-course.paragraph.number": "Formats a number according to the rules of the current locale.",
+  "icu-crash-course.paragraph.number-2": "There's also an advanced feature called <strong id='crash-course-number-skeletons' class='font-semibold text-primary'>Number Skeletons</strong> that allow you to customize to great lengths how you want your numbers formatted.",
+  "icu-crash-course.paragraph.number-3": "The possibilities of number skeletons are limitless.",
   "icu-crash-course.table-cells.number": "Your account balance is {num, number}",
+  "icu-crash-course.table-cells.skeletonCurrency": "Your account balance is {num, number, ::currency/EUR}",
+  "icu-crash-course.table-cells.skeletonCurrencySigned": "Your account balance is {num, number, ::currency/EUR sign-always}",
+  "icu-crash-course.table-cells.skeletonPercentage": "Game progress {num, number, ::percent}",
+  "icu-crash-course.table-cells.skeletonPercentageTwoDecimals": "Game progress {num, number, ::percent .00}",
+  "icu-crash-course.table-cells.skeletonMeasurementMeter": "Your destination is {num, number, ::unit/meter} away",
+  "icu-crash-course.table-cells.skeletonMeasurementMeterLong": "Your destination is {num, number, ::unit/meter unit-width-full-name} away",
+  "icu-crash-course.table-cells.skeletonCompactShort": "Are you sure you want to bid {num, number, ::K} over asking?",
+  "icu-crash-course.table-cells.skeletonCompactLong": "Are you sure you want to bid {num, number, ::KK} over asking?",
+  "icu-crash-course.table-cells.skeletonScientific": 	"The chances of winning the lottery are 1 in {num, number, ::scientific/*ee}",
 
 
   "getting-started.title": "Getting started",
@@ -132,6 +143,8 @@
   "configuration.paragraph.custom-formats-1": "This library can format numbers, dates and times. It does it without adding significant weight to your app by leveraging the Intl API already present in all modern browsers and in Node.js.<br/>By default you app can use these formats, but you can add your own.",
   "configuration.paragraph.custom-formats-2": "If you want to define your own formats pass them on initialization using the",
   "configuration.paragraph.custom-formats-3": "option, which will be deep merged with the default formats listed above. The formats must be valid options to forward to",
+  "configuration.paragraph.custom-formats-4": "For numbers specifically you can register your own formats like that or you can use Number Skeletons as a more flexible way of customizing every single aspect of how numbers are rendered. Check the crash course",
+  "configuration.paragraph.custom-formats-5": "here",
   
   "usage.title": "Usage",
   "usage.paragraph.preface-1": "The runtime API of this library is mostly taken from the great",
