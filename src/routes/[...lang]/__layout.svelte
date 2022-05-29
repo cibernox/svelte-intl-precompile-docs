@@ -24,7 +24,6 @@
   }
 </script>
 <script lang="ts">
-  const flags = import.meta.globEager('../../lib/flags/*.svg')
   $: lang = extractLanguageFromPath($page.url.pathname);
   $: {
     if ($locale !== lang) {
@@ -32,7 +31,7 @@
     }
   }
   function flagFor(lang) {
-    return flags[`../../lib/flags/${lang}.svg`].default
+    return `/flags/${lang}.svg`;
   }
 
   function setLocale(code) {
