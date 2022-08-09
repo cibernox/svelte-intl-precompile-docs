@@ -1,17 +1,17 @@
 <script lang="ts">
-	let translations = `{
-	"header": "Svelte Intl Precompile is {adjective}",
-	"posted-on": "Posted on {postDate, date, long}",
-	"invite-friend": "{name} has joined Svelte! Give {gender, select, male {him} female {her} other {your friend}} a warm welcome!",
-	"friends-msg": "You have {count, plural, zero {no friend} one {just # friend} other {# friends}}",
-}`
+	let translations = JSON.stringify({
+		"header": "Svelte Intl Precompile is {adjective}",
+		"posted-on": "Posted on {postDate, date, long}",
+		"invite-friend": "{name} has joined Svelte! Give {gender, select, male {him} female {her} other {your friend}} a warm welcome!",
+		"friends-msg": "You have {count, plural, zero {no friend} one {just # friend} other {# friends}}"
+	});
 	let transformedTranslations = "";
 	let minifiedTranslations = "";
 	let showMinified = false;
 	$: output = showMinified ? minifiedTranslations : transformedTranslations;
 	let timer;
 	function transform(code) {
-		fetch('/playground', { method: 'POST', body: code })
+		fetch('/playground', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: code })
 			.then(r => {
 				if (r.ok) {
 					return r.json();

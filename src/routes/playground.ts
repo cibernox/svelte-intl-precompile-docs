@@ -1,5 +1,4 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import type { Locals } from '$lib/types';
+import type { RequestHandler } from './__types';
 import * as babel from '@babel/core';
 import { minify } from "terser";
 import buildPlugin from 'babel-plugin-precompile-intl';
@@ -7,9 +6,10 @@ import buildPlugin from 'babel-plugin-precompile-intl';
 const intlPrecompiler = buildPlugin('svelte-intl-precompile');
 
 // POST /playground.json
-export const post: RequestHandler<Locals, FormData> = async (request) => {
+export const POST: RequestHandler = async ({ request, locals }) => {
   try {
-    let transformed = babel.transform('export default ' + request.body, { plugins: [intlPrecompiler] }).code;
+    const body = await request.text();
+    let transformed = babel.transform('export default ' + body, { plugins: [intlPrecompiler] }).code;
     let { code: minified } = await minify(transformed, {  
       mangle: {
         toplevel: true,
