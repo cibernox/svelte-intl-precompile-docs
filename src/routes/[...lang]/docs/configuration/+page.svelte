@@ -1,6 +1,3 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
 <script lang="ts">
 	import { t, locale } from 'svelte-intl-precompile';
 	import scrollToHash from '$lib/scroll-to-hash';;
@@ -21,8 +18,8 @@
 <p>{$t('configuration.paragraph.example-1')} <CodeInline>src/__layout.svelte</CodeInline> {$t('configuration.paragraph.example-2')}</p>
 
 <Codeblock lang="html">
-{`<script context="module">
-	import { addMessages, init } from 'svelte-intl-precompile';
+{`
+  import { addMessages, init } from 'svelte-intl-precompile';
 	import en from '$locales/en';
 	import es from '$locales/es';
 	addMessages('en', en);
@@ -30,9 +27,7 @@
 	init({
 		initialLocale: 'en',
 		fallbackLocale: 'en'
-	});	
-</script>
-<slot/>`}
+	});`}
 </Codeblock>
 
 <p>{$t('configuration.paragraph.example-3')}</p>
@@ -66,7 +61,6 @@ addMessages('es', es);
 </p>
 
 <Codeblock lang="js">{`
-<script context="module">
   import { init, register, waitLocale } from 'svelte-intl-precompile';
   register('en', () => import('$locales/en'));
   register('es', () => import('$locales/es'));
@@ -74,9 +68,7 @@ addMessages('es', es);
   export async function load() {
     init({ initialLocale: en });
     await waitLocale(); // awaits the default locale, "en" in this case.
-    return {};
   }
-</script>
 `}</Codeblock>
 
 <h2 class="text-2xl font-semibold" id="dynamic-locales">{$t('configuration.subsection.dynamic-locales-shorthand')}</h2>
@@ -92,7 +84,6 @@ addMessages('es', es);
 </p>
 
 <Codeblock lang="js">{`
-<script context="module">
   import { init, waitLocale } from 'svelte-intl-precompile';
   import { registerAll, availableLocales } from '$locales';
   
@@ -101,10 +92,8 @@ addMessages('es', es);
   export async function load() {
     init({ initialLocale: selectBestMatchingLocale(availableLocales) });
     await waitLocale();
-    return {};
   }
-</script>  
-  `}</Codeblock>
+`}</Codeblock>
 
 <h2 class="text-2xl font-semibold" id="init">{$t('configuration.subsection.init')}</h2>
 

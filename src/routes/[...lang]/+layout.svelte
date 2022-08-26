@@ -1,29 +1,10 @@
-<script context="module" lang="ts">
-  import { registerAll, availableLocales } from '$locales';
-  import { waitLocale, init, locale } from 'svelte-intl-precompile';
-  import { goto } from '$app/navigation';
-  import { page } from '$app/stores';
-  registerAll();
-  let defaultLang = 'en';
-  let localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`);
-  let initialized = false;
-  function extractLanguageFromPath(path) {
-    return (localeRegex.exec(path) || [null, defaultLang])[1];
-  }
-  export async function load({ url: { pathname } }) {
-    if (!initialized) {      
-      const lang = extractLanguageFromPath(pathname);
-      init({
-        initialLocale: lang,
-        fallbackLocale: defaultLang
-      });
-      initialized = true;
-      await waitLocale()
-    }
-    return {};
-  }
-</script>
 <script lang="ts">
+  import { goto } from '$app/navigation';
+  import { page } from '$app/stores';  
+  import { locale } from 'svelte-intl-precompile';
+  import { availableLocales } from '$locales';
+  import { extractLanguageFromPath, localeRegex } from './+layout';
+
   $: lang = extractLanguageFromPath($page.url.pathname);
   $: {
     if ($locale !== lang) {

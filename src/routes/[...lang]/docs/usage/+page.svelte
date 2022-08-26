@@ -1,6 +1,3 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
 <script>
 	import { t } from 'svelte-intl-precompile';
 	import Codeblock from '$lib/Codeblock.svelte';

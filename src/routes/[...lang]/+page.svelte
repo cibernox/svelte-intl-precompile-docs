@@ -1,8 +1,5 @@
-<script context="module" lang="ts">
-	import { t, locale } from 'svelte-intl-precompile';
-	export const prerender = true;
-</script>
 <script lang="ts">
+	import { t, locale } from 'svelte-intl-precompile';
 </script>
 
 <svelte:head>

@@ -1,7 +1,3 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import { t } from "precompile-intl-runtime";
 	import Playground from "$lib/Playground.svelte";
