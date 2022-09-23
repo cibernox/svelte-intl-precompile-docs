@@ -11,7 +11,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "next",
+    "@sveltejs/kit": "next",
     "@testing-library/svelte": "^3.2.0",
     "@types/cookie": "^0.5.1",
     "autoprefixer": "^10.4.8",
@@ -31,7 +31,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@sveltejs/kit": "next",
+    "@sveltejs/adapter-vercel": "next",
     "cookie": "^0.5.0",
     "svelte-intl-precompile": "^0.12.0",
     "terser": "^5.15.0"
