@@ -17,13 +17,13 @@
 
   function setLocale(code) {
     if ($page.url.pathname === '/') {
-      goto('/' + code, { noscroll: true });
+      goto('/' + code, { noScroll: true });
     } else {
       let newPath = $page.url.pathname.replace(localeRegex, '/' + code + '$2');
       if (newPath === $page.url.pathname && !localeRegex.exec($page.url.pathname)) {
         newPath = `/${code}${$page.url.pathname}`
       }
-      goto(newPath, { noscroll: true })
+      goto(newPath, { noScroll: true })
     }
   }
 </script>
