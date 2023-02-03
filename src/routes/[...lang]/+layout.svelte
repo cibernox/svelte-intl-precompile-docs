@@ -3,9 +3,9 @@
   import { page } from '$app/stores';  
   import { locale } from 'svelte-intl-precompile';
   import { availableLocales } from '$locales';
-  import { extractLanguageFromPath, localeRegex } from './+layout';
+  import { _extractLanguageFromPath, _localeRegex } from './+layout';
 
-  $: lang = extractLanguageFromPath($page.url.pathname);
+  $: lang = _extractLanguageFromPath($page.url.pathname);
   $: {
     if ($locale !== lang) {
       $locale = lang;
@@ -19,8 +19,8 @@
     if ($page.url.pathname === '/') {
       goto('/' + code, { noScroll: true });
     } else {
-      let newPath = $page.url.pathname.replace(localeRegex, '/' + code + '$2');
-      if (newPath === $page.url.pathname && !localeRegex.exec($page.url.pathname)) {
+      let newPath = $page.url.pathname.replace(_localeRegex, '/' + code + '$2');
+      if (newPath === $page.url.pathname && !_localeRegex.exec($page.url.pathname)) {
         newPath = `/${code}${$page.url.pathname}`
       }
       goto(newPath, { noScroll: true })

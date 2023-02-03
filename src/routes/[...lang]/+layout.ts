@@ -6,13 +6,13 @@ registerAll();
 let defaultLang = 'en';
 let initialized = false;
 
-export const localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`);
-export function extractLanguageFromPath(path) {
-  return (localeRegex.exec(path) || [null, defaultLang])[1];
+export const _localeRegex = new RegExp(`^/(${availableLocales.join('|')})(/|$)`);
+export function _extractLanguageFromPath(path) {
+  return (_localeRegex.exec(path) || [null, defaultLang])[1];
 }
 export const load: LayoutLoad =  async function({ url: { pathname } }) {
   if (!initialized) {      
-    const lang = extractLanguageFromPath(pathname);
+    const lang = _extractLanguageFromPath(pathname);
     init({
       initialLocale: lang,
       fallbackLocale: defaultLang
