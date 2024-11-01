@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { t } from "precompile-intl-runtime";
+	import { t } from "svelte-intl-precompile";
 	import Playground from "$lib/Playground.svelte";
 </script>
 

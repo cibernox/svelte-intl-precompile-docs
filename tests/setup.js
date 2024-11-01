@@ -1,3 +1,3 @@
-import chai from 'chai';
-import chaiDom from 'chai-dom';
-chai.use(chaiDom);
+import { expect } from 'vitest';
+import * as matchers from '@testing-library/jest-dom/matchers';
+expect.extend(matchers)

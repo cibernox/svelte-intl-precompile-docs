@@ -1,8 +1,10 @@
 <script>
 	import { t } from 'svelte-intl-precompile';
-	import Codeblock from '$lib/Codeblock.svelte';
 	import DefinitionEntry from '$lib/DefinitionEntry.svelte';
 	import scrollToHash from '$lib/scroll-to-hash';;
+	import Highlight from "svelte-highlight";
+	import javascript from "svelte-highlight/languages/javascript";
+
 	scrollToHash();
 </script>
 
@@ -19,22 +21,22 @@
 
 <p>{$t('usage.paragraph.preface-3')}</p>
 
-<Codeblock lang="js">{`{
+<Highlight class="bg-code" language={javascript} code={`{
 	"page.title": "Svelte Intl Precompile Docs",
 	"login-success-msg": "Welcome back, {name}",
 	"transfer-received": "You received {amount, number, currency} at {wireDate, time, short} on {wireDate, date, long}"
 }
-`}</Codeblock>
+`} />
 
 <h2 class="text-xl font-semibold" id="basic-translation">{@html $t('usage.subsection.basic-translations')}</h2>
 
 <p>{$t('usage.paragraph.basic-translations-1')}</p>
 
-<Codeblock lang="jsx">{`<script>
+<Highlight class="bg-code" language={javascript} code={`<script>
 	import { t } from 'svelte-intl-precompile'
 </script>
 <h1>{$t('page.title')}</h1>
-`}</Codeblock>
+`} />
 
 <h2 class="text-xl font-semibold" id="passing-arguments">{$t('usage.subsection.passing-arguments')}</h2>
 
@@ -44,17 +46,17 @@
 	{$t('usage.paragraph.passing-arguments-3')}
 </p>
 
-<Codeblock lang="jsx">{`<h1>{$t('login-success-msg', { values: { name: user.name } })}</h1>`}</Codeblock>
+<Highlight class="bg-code" language={javascript} code={`<h1>{$t('login-success-msg', { values: { name: user.name } })}</h1>`} />
 
 <p>{$t('usage.paragraph.passing-arguments-4')}</p>
 
-<Codeblock lang="jsx">{`<h1>{$t('transfer-received', { values: { amount: 123.45 , wireDate: transfer.date } })}</h1>`}</Codeblock>
+<Highlight class="bg-code" language={javascript} code={`<h1>{$t('transfer-received', { values: { amount: 123.45 , wireDate: transfer.date } })}</h1>`} />
 
 <h2 class="text-xl font-semibold" id="formatting">{$t('usage.subsection.formatting')}</h2>
 
 <p>{$t('usage.paragraph.formatting-1')}</p>
 
-<Codeblock lang="html">{`<script>
+<Highlight class="bg-code" language={javascript} code={`<script>
 	import { date, number, time, init } from 'svelte-intl-precompile';
 	// Adding a custom formatter for Euro as it's not among the defaults.
 	init({
@@ -73,7 +75,7 @@
 		})
 	}
 </script>
-`}</Codeblock>
+`} />
 
 <h2 class="text-xl font-semibold" id="other-stores">{$t('usage.subsection.other-stores')}</h2>
 
@@ -81,22 +83,22 @@
 
 <dl>
 	<DefinitionEntry background="gray">
-		<svelte:fragment slot="dt"><pre>$locale</svelte:fragment>
-		<svelte:fragment slot="dd">{@html $t('usage.definitions.other-stores-1')}</svelte:fragment>
+		{#snippet dt()}<pre>$locale</pre>{/snippet}
+		{#snippet dd()}{@html $t('usage.definitions.other-stores-1')}{/snippet}
 	</DefinitionEntry>
 	<DefinitionEntry background="white">
-		<svelte:fragment slot="dt"><pre>$locales</svelte:fragment>
-		<svelte:fragment slot="dd">{@html $t('usage.definitions.other-stores-2')}</svelte:fragment>
+		{#snippet dt()}<pre>$locales</pre>{/snippet}
+		{#snippet dd()}{@html $t('usage.definitions.other-stores-2')}{/snippet}
 	</DefinitionEntry>
 	<DefinitionEntry background="gray">
-		<svelte:fragment slot="dt"><pre>$isLoading</svelte:fragment>
-		<svelte:fragment slot="dd">{@html $t('usage.definitions.other-stores-3')}</svelte:fragment>
+		{#snippet dt()}<pre>$isLoading</pre>{/snippet}
+		{#snippet dd()}{@html $t('usage.definitions.other-stores-3')}{/snippet}
 	</DefinitionEntry>
 </dl>
 
 <p>{$t('usage.paragraph.other-stores-2')}</p>
 
-<Codeblock lang="jsx">{`<script>
+<Highlight class="bg-code" language={javascript} code={`<script>
 	import { t, locale, locales } from 'svelte-intl-precompile';
 </script>
 {#each $locales as loc}
@@ -105,6 +107,6 @@
 		class={loc === $locale && 'current'} 
 		on:click={() => $locale = loc}>{loc}</button>
 {/each}
-`}</Codeblock>
+`} />
 
 <p>{@html $t('usage.paragraph.other-stores-3')}</p>

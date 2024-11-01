@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Playground from "$lib/Playground.svelte";
-	import { t } from "precompile-intl-runtime";
+	import { t } from "svelte-intl-precompile";
 </script>
 
 <svelte:head>
