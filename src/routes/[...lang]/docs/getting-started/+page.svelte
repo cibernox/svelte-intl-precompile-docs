@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { t } from 'svelte-intl-precompile';
 	import Codeblock from '$lib/Codeblock.svelte';
-	import CodeInline from '$lib/CodeInline.svelte';
 	import scrollToHash from '$lib/scroll-to-hash';;
 	scrollToHash();
 </script>
@@ -16,7 +15,7 @@
 
 <p>{$t('getting-started.paragraph.installation-1')}</p>
 
-<Codeblock>npm install svelte-intl-precompile</Codeblock>
+<Codeblock lang="sh">npm install svelte-intl-precompile</Codeblock>
 
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.create-translations')}</h2>
 <p>
