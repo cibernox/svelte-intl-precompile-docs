@@ -36,3 +36,7 @@
 html{
   scroll-behavior:smooth
 }
+
+.bg-code code {
+  background-color: rgb(246 250 253 / var(--tw-bg-opacity))
+}

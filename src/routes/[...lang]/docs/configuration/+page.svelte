@@ -2,8 +2,10 @@
 	import { t, locale } from 'svelte-intl-precompile';
 	import scrollToHash from '$lib/scroll-to-hash';;
 	import CodeInline from '$lib/CodeInline.svelte';
-	import Codeblock from '$lib/Codeblock.svelte';
 	import DefinitionEntry from '$lib/DefinitionEntry.svelte';
+  import javascript from "svelte-highlight/languages/javascript";
+  import Highlight from "svelte-highlight";
+
 	scrollToHash();
 </script>
 
@@ -17,8 +19,7 @@
 
 <p>{$t('configuration.paragraph.example-1')} <CodeInline>src/__layout.svelte</CodeInline> {$t('configuration.paragraph.example-2')}</p>
 
-<Codeblock lang="html">
-{`
+<Highlight class="bg-code" language={javascript} code={`
   import { addMessages, init } from 'svelte-intl-precompile';
 	import en from '$locales/en';
 	import es from '$locales/es';
@@ -27,8 +28,7 @@
 	init({
 		initialLocale: 'en',
 		fallbackLocale: 'en'
-	});`}
-</Codeblock>
+	});`} />
 
 <p>{$t('configuration.paragraph.example-3')}</p>
 
@@ -36,12 +36,11 @@
 
 <p>{$t('configuration.paragraph.static-locales-1')} <CodeInline>addMessages(langCode, translations)</CodeInline>.</p>
 
-<Codeblock lang="js">
+<Highlight class="bg-code" language={javascript} code={`
 import en from '$locales/en';
 import es from '$locales/es';	
 addMessages('en', en);
-addMessages('es', es);	
-</Codeblock>
+addMessages('es', es);`} />
 
 <p>{$t('configuration.paragraph.static-locales-2')} <CodeInline>$locales</CodeInline> {$t('configuration.paragraph.static-locales-3')}</p>
 
@@ -60,7 +59,7 @@ addMessages('es', es);
   {$t('configuration.paragraph.dynamic-locales-5')}
 </p>
 
-<Codeblock lang="js">{`
+<Highlight class="bg-code" language={javascript} code={`
   import { init, register, waitLocale } from 'svelte-intl-precompile';
   register('en', () => import('$locales/en'));
   register('es', () => import('$locales/es'));
@@ -69,7 +68,7 @@ addMessages('es', es);
     init({ initialLocale: en });
     await waitLocale(); // awaits the default locale, "en" in this case.
   }
-`}</Codeblock>
+`} />
 
 <h2 class="text-2xl font-semibold" id="dynamic-locales">{$t('configuration.subsection.dynamic-locales-shorthand')}</h2>
 
@@ -83,7 +82,7 @@ addMessages('es', es);
   {@html $t('configuration.paragraph.dynamic-locales-shorthand-4')}
 </p>
 
-<Codeblock lang="js">{`
+<Highlight class="bg-code" language={javascript} code={`
   import { init, waitLocale } from 'svelte-intl-precompile';
   import { registerAll, availableLocales } from '$locales';
   
@@ -93,7 +92,7 @@ addMessages('es', es);
     init({ initialLocale: selectBestMatchingLocale(availableLocales) });
     await waitLocale();
   }
-`}</Codeblock>
+`} />
 
 <h2 class="text-2xl font-semibold" id="init">{$t('configuration.subsection.init')}</h2>
 
@@ -103,12 +102,11 @@ addMessages('es', es);
 	{$t('common.and')} <CodeInline>fallbackLocale</CodeInline>{$t('configuration.paragraph.init-3')}
 </p>
 
-<Codeblock lang="js">{`
+<Highlight class="bg-code" language={javascript} code={`
 init({
 	initialLocale: 'es',
 	fallbackLocale: 'en'
-});`}</Codeblock>
-
+});`} />
 <p>{$t('configuration.paragraph.init-4')} <CodeInline>initialLocale</CodeInline> {@html $t('configuration.paragraph.init-5')}</p>
 
 <h2 class="text-xl font-semibold" id="find-best-locale">{$t('configuration.subsection.find-locale')}</h2>
@@ -150,7 +148,7 @@ init({
   {@html $t('configuration.paragraph.custom-formats-1')}
 </p>
 
-<Codeblock lang="js">{`{
+<Highlight class="bg-code" language={javascript} code={`{
   number: {
     scientific: { notation: 'scientific' }
     engineering: { notation: 'engineering' }
@@ -169,7 +167,7 @@ init({
     long: { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' }
     full: { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' }
   }
-}`}</Codeblock>
+}`} />
 
 <p>
   {$t('configuration.paragraph.custom-formats-2')} <CodeInline>formats</CodeInline>
@@ -177,7 +175,7 @@ init({
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat" class="text-primary underline">Intl.DateTimeFormat</a>.
 </p>
 
-<Codeblock lang="js">{`init({
+<Highlight class="bg-code" language={javascript} code={`init({
   fallbackLocale: 'en',
   initialLocale: 'en',
   formats: {
@@ -188,6 +186,6 @@ init({
       'just-hour': { hour: 'numeric' }
     }
   }
-});`}</Codeblock>
+});`} />
 
 <p>{$t('configuration.paragraph.custom-formats-4')} <a href="/{$locale}/docs/icu-crash-course#crash-course-number-skeletons" class="text-primary underline">{$t('configuration.paragraph.custom-formats-5')}</a></p>

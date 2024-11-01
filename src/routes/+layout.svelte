@@ -1,5 +1,7 @@
 <script lang="ts">
   import "../app.css";
+  import "svelte-highlight/styles/github.css";  
+  
   interface Props {
     children?: import('svelte').Snippet;
   }

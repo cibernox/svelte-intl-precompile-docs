@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { t } from 'svelte-intl-precompile';
-	import Codeblock from '$lib/Codeblock.svelte';
 	import scrollToHash from '$lib/scroll-to-hash';;
+	import Highlight from "svelte-highlight";
+	import javascript from "svelte-highlight/languages/javascript";
+	import shell from "svelte-highlight/languages/shell";
+	import json from "svelte-highlight/languages/json";
+
 	scrollToHash();
 </script>
 
@@ -15,7 +19,7 @@
 
 <p>{$t('getting-started.paragraph.installation-1')}</p>
 
-<Codeblock lang="sh">npm install svelte-intl-precompile</Codeblock>
+<Highlight class="bg-code" language={shell} code="npm install svelte-intl-precompile" />
 
 <h2 class="text-2xl font-semibold">{$t('getting-started.subsection.create-translations')}</h2>
 <p>
@@ -27,7 +31,7 @@
 	{$t('getting-started.paragraph.create-translations-2')} 
 </p>
 
-<Codeblock>
+<Highlight class="bg-code" language={shell} code={`
 ├── locales
 │   ├── en.json
 │   ├── es.json
@@ -36,29 +40,26 @@
 ├── static
 ├── package.json
 └── svelte.config.js
-</Codeblock>
+`} />
 
 <p>{$t('getting-started.paragraph.create-translations-3')}</p>
 
-<Codeblock lang="js">
-{`{
+<Highlight class="bg-code" language={json} code={`{
 	"recent.aria": "Find recently viewed tides",
 	"menu": "Menu",
 	"foot": "{count} {count, plural, =1 {foot} other {feet}}",
-}`}
-</Codeblock>
+}`} />
 
 <p>{$t('getting-started.paragraph.create-translations-4')}</p>
 
-<Codeblock lang="js">{`{
+<Highlight class="bg-code" language={json} code={`{
 	"placeholders": {
 		"fullname": "John Smith",
 		"street-name": "13 Elm Street",
 		"subject": "Re: Hello"
 	},
 	"welcome-hero": "Welcome to Goliath Bank!",
-}`}
-	</Codeblock>
+}`} />
 
 <h3 class="text-l font-semibold">{$t('getting-started.paragraph.create-translations-5')}</h3>
 
@@ -76,8 +77,8 @@
 
 <p>{@html $t('getting-started.paragraph.hook-into-sveltekit-1', { values: { path: '/svelte.config.js' }})}</p>
 
-<Codeblock lang="js">
-{`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin";
+<Highlight class="bg-code" language={javascript} code={
+`import precompileIntl from "svelte-intl-precompile/sveltekit-plugin";
 
 const config = {
 	kit: {
@@ -90,8 +91,7 @@ const config = {
 	}
 };
 
-export default config;`}
-</Codeblock>
+export default config;`} />
 
 <p>{$t('getting-started.paragraph.hook-into-sveltekit-2')}</p>
 
@@ -99,8 +99,8 @@ export default config;`}
 
 <p>{@html $t('getting-started.paragraph.hook-into-vite-1', { values: { path:'/vite.config.js' }})}</p>
 
-<Codeblock lang="js">
-{`import { defineConfig } from "vite";
+<Highlight class="bg-code" language={javascript} code={
+`import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import precompileIntl from "svelte-intl-precompile/sveltekit-plugin";
 
@@ -112,5 +112,4 @@ export default defineConfig({
     svelte(),
     precompileIntl("locales"),
   ],
-});`}
-</Codeblock>
+});`} />
