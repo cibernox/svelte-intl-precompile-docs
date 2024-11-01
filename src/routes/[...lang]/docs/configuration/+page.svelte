@@ -103,7 +103,8 @@ addMessages('es', es);
 	{$t('common.and')} <CodeInline>fallbackLocale</CodeInline>{$t('configuration.paragraph.init-3')}
 </p>
 
-<Codeblock lang="js">{`init({
+<Codeblock lang="js">{`
+init({
 	initialLocale: 'es',
 	fallbackLocale: 'en'
 });`}</Codeblock>
