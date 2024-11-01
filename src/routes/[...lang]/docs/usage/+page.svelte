@@ -83,16 +83,16 @@
 
 <dl>
 	<DefinitionEntry background="gray">
-		<svelte:fragment slot="dt"><pre>$locale</svelte:fragment>
-		<svelte:fragment slot="dd">{@html $t('usage.definitions.other-stores-1')}</svelte:fragment>
+		{#snippet dt()}<pre>$locale</pre>{/snippet}
+		{#snippet dd()}{@html $t('usage.definitions.other-stores-1')}{/snippet}
 	</DefinitionEntry>
 	<DefinitionEntry background="white">
-		<svelte:fragment slot="dt"><pre>$locales</svelte:fragment>
-		<svelte:fragment slot="dd">{@html $t('usage.definitions.other-stores-2')}</svelte:fragment>
+		{#snippet dt()}<pre>$locales</pre>{/snippet}
+		{#snippet dd()}{@html $t('usage.definitions.other-stores-2')}{/snippet}
 	</DefinitionEntry>
 	<DefinitionEntry background="gray">
-		<svelte:fragment slot="dt"><pre>$isLoading</svelte:fragment>
-		<svelte:fragment slot="dd">{@html $t('usage.definitions.other-stores-3')}</svelte:fragment>
+		{#snippet dt()}<pre>$isLoading</pre>{/snippet}
+		{#snippet dd()}{@html $t('usage.definitions.other-stores-3')}{/snippet}
 	</DefinitionEntry>
 </dl>
 

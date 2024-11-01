@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { t } from 'svelte-intl-precompile';
-	let interpolation = 'orange';
-	let guest = 'John';
-	let plural1 = 0;
-	let plural2 = 0;
-	let guestCount = 0;
-	let childGender = "male";
-	let holidaysStart = new Date();
-	let appointment = new Date();
-	let number = 0;
-	let skeletonBalance = 0;
-	let skeletonPercentageVal = 0;
-	let skeletonMeasurementMeterVal = 0;
-	let skeletonCompactVal = 5000;
-	let skeletonScientificVal = 123456789;
+	let interpolation = $state('orange');
+	let guest = $state('John');
+	let plural1 = $state(0);
+	let plural2 = $state(0);
+	let guestCount = $state(0);
+	let childGender = $state("male");
+	let holidaysStart = $state(new Date());
+	let appointment = $state(new Date());
+	let number = $state(0);
+	let skeletonBalance = $state(0);
+	let skeletonPercentageVal = $state(0);
+	let skeletonMeasurementMeterVal = $state(0);
+	let skeletonCompactVal = $state(5000);
+	let skeletonScientificVal = $state(123456789);
 	let interpolationKey = "Your favorite color is {chosen}";
 	let simplePlural = "Your have {numCats, plural, one {one cat} other {# cats}}";
 	let complexPlural = "Your have {numCats, plural, \n  =0 {no cats at all} \n  =1 {one single cat} \n  =2 {a couple cats} \n  =3 {a trio of cats} \n  =12 {a dozen cats} \n  other {exactly # cats}}";
@@ -183,7 +183,7 @@
 				<pre><code>{select}</code></pre>
 			</td>
       <td>
-				<select value={childGender} on:change={(e) => childGender = e.target.value}>
+				<select value={childGender} onchange={(e) => childGender = e.target.value}>
 					<option selected={childGender === "male"} value="male">
 						{$t('icu-crash-course.table-cells.select-value-male')}
 					</option>
@@ -226,7 +226,7 @@
 				<pre><code>{dateString}</code></pre>
 			</td>
       <td>
-				<input type="date" on:change={onDateChange}>
+				<input type="date" onchange={onDateChange}>
 			</td>
       <td>{$t('icu-crash-course.table-cells.date', { values: { holidaysStart } })}</td>
     </tr>
@@ -251,7 +251,7 @@
 				<pre><code>{timeString}</code></pre>
 			</td>
       <td>
-				<input type="time" on:change={onTimeChange}>
+				<input type="time" onchange={onTimeChange}>
 			</td>
       <td>{$t('icu-crash-course.table-cells.time', { values: { appointment } })}</td>
     </tr>

@@ -117,28 +117,28 @@ init({
 
 <dl>
   <DefinitionEntry background="gray">
-    <svelte:fragment slot="dt"><pre>getLocaleFromNavigator()</svelte:fragment>
-    <svelte:fragment slot="dd">{$t('configuration.definitions.navigator')}</svelte:fragment>
+    {#snippet dt()}<pre>getLocaleFromNavigator()</pre>{/snippet}
+    {#snippet dd()}{$t('configuration.definitions.navigator')}{/snippet}
   </DefinitionEntry>
   <DefinitionEntry background="white">
-    <svelte:fragment slot="dt"><pre>getLocaleFromQueryString(key)</svelte:fragment>
-    <svelte:fragment slot="dd">{@html $t('configuration.definitions.query')}</svelte:fragment>
+    {#snippet dt()}<pre>getLocaleFromQueryString(key)</pre>{/snippet}
+    {#snippet dd()}{@html $t('configuration.definitions.query')}{/snippet}
   </DefinitionEntry>
   <DefinitionEntry background="gray">
-    <svelte:fragment slot="dt"><pre>getLocaleFromHash(key)</svelte:fragment>
-    <svelte:fragment slot="dd">{@html $t('configuration.definitions.hash')}</svelte:fragment>
+    {#snippet dt()}<pre>getLocaleFromHash(key)</pre>{/snippet}
+    {#snippet dd()}{@html $t('configuration.definitions.hash')}{/snippet}
   </DefinitionEntry>  
   <DefinitionEntry background="white">
-    <svelte:fragment slot="dt"><pre>getLocaleFromPathname(regex)</svelte:fragment>
-    <svelte:fragment slot="dd">{@html $t('configuration.definitions.path')}</svelte:fragment>
+    {#snippet dt()}<pre>getLocaleFromPathname(regex)</pre>{/snippet}
+    {#snippet dd()}{@html $t('configuration.definitions.path')}{/snippet}
   </DefinitionEntry>
   <DefinitionEntry background="gray">
-    <svelte:fragment slot="dt"><pre>getLocaleFromHostname(regex)</svelte:fragment>
-    <svelte:fragment slot="dd">{@html $t('configuration.definitions.host')}</svelte:fragment>
+    {#snippet dt()}<pre>getLocaleFromHostname(regex)</pre>{/snippet}
+    {#snippet dd()}{@html $t('configuration.definitions.host')}{/snippet}
   </DefinitionEntry>
   <DefinitionEntry background="gray">
-    <svelte:fragment slot="dt"><pre>getLocaleFromAcceptLanguageHeader(header, availableLocales?)</pre></svelte:fragment>
-    <svelte:fragment slot="dd">{@html $t('configuration.definitions.acceptLanguage')}</svelte:fragment>
+    {#snippet dt()}<pre>getLocaleFromAcceptLanguageHeader(header, availableLocales?)</pre>{/snippet}
+    {#snippet dd()}{@html $t('configuration.definitions.acceptLanguage')}{/snippet}
   </DefinitionEntry>
 </dl>
 
