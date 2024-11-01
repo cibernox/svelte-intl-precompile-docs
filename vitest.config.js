@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import path from 'path';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [
     svelte({ 
       hot: !process.env.VITEST,
@@ -14,8 +14,9 @@ export default defineConfig({
     setupFiles: ['./tests/setup.js'],
   },
   resolve: {
+    conditions: mode === 'test' ? ['browser'] : [],
     alias: {
       $lib: path.resolve('./src/lib'),
     },
   },  
-})
+}))
